@@ -1,0 +1,214 @@
+/* Job Cards */
+/* ▼ '전체 9개의 일자리' 같은 결과 제목 */
+.job-results h3 {
+  /* 제목 아래쪽 여백 (아래 카드 목록과의 간격) */
+  margin-bottom: 1.5rem;
+  /* 제목 글자색 */
+  color: #333;
+  font-size: 1.3rem;
+}
+
+/* ▼ 모든 일자리 카드를 감싸는 그리드 컨테이너 */
+.job-grid {
+  display: grid;
+  /* 4개 고정 배치 */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+/* ▼ 개별 일자리 카드 하나하나 (쿠팡, 오아시스, 이마트 등) */
+.job-card {
+  /* 카드 배경색 (흰색) */
+  background: white;
+  /* 카드 모서리 둥글기 (8px로 줄여서 더 사각형 느낌) */
+  border-radius: 8px;
+  /* 카드 안쪽 여백 (가로 여백을 늘려서 더 넓어 보이게) */
+  padding: 1.2rem 1.8rem;
+  /* 카드 그림자 효과 */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  /* 마우스오버 시 움직임과 그림자 변화에 대한 부드러운 전환 효과 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* 카드의 세로 비율을 줄이고 가로를 더 넓게 */
+  aspect-ratio: 1.4/1;
+}
+
+/* 카드에 마우스를 올렸을 때 */
+.job-card:hover {
+  /* 카드를 위로 살짝 이동시키는 효과 */
+  transform: translateY(-2px);
+  /* 그림자를 더 진하고 넓게 변경 */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+
+/* ▼ 카드 상단 부분 (회사 정보와 연령대 뱃지 포함) */
+.job-card-header {
+  /* 내부 요소를 가로로 정렬 */
+  display: flex;
+  /* 내부 요소를 양쪽 끝으로 정렬 (회사정보는 왼쪽, 뱃지는 오른쪽) */
+  justify-content: space-between;
+  /* 내부 요소의 세로축을 위쪽으로 정렬 */
+  align-items: flex-start;
+  /* 헤더 아래쪽 여백 (아래 직무 제목과의 간격) */
+  margin-bottom: 0.8rem;
+}
+
+/* ▼ 회사 로고와 이름을 포함하는 왼쪽 영역 */
+.company-info {
+  /* 내부 요소(로고, 텍스트)를 가로로 정렬 */
+  display: flex;
+  /* 내부 요소의 세로축을 중앙으로 정렬 */
+  align-items: center;
+  /* 로고와 텍스트 사이의 간격 */
+  gap: 1.5rem;
+}
+
+/* ▼ 회사 로고 아이콘 (빌딩, 파도, 카트 모양) */
+.company-logo {
+  /* 아이콘 크기 (카드가 작아진만큼 조금 줄임) */
+  font-size: 2.5rem;
+}
+
+/* ▼ 회사 이름 ('쿠팡 풀필먼트 서비스', '오아시스' 등) */
+.company-name {
+  /* 회사 이름 글씨 크기 */
+  font-size: 1.2rem;
+  /* 글자 두께 (조금 굵게) */
+  font-weight: 600;
+  /* 이름 아래쪽 여백 (아래 직종 카테고리와의 간격) */
+  margin-bottom: 0rem;
+  /* 긴 회사명은 줄바꿈 처리 */
+  line-height: 1.3;
+}
+
+/* ▼ 직종 카테고리 ('물류/배송', '유통/판매' 등) */
+.job-category {
+  /* 카테고리 글씨 크기 */
+  font-size: 0.9rem;
+  /* 카테고리 태그의 안쪽 여백 */
+  padding: 0.2rem 0.4rem;
+  /* 카테고리 태그의 모서리 둥글기 */
+  border-radius: 12px;
+  /* 글자 두께 */
+  font-weight: 500;
+}
+
+/* ▼ '50대' 같은 연령대 뱃지 (초록색 알약 모양) */
+.age-badge {
+  /* 뱃지 글자색 (흰색) */
+  color: white;
+  /* 뱃지 안쪽 여백 */
+  padding: 0.2rem 0.6rem;
+  /* 뱃지 모서리를 둥글게 (알약 모양) */
+  border-radius: 15px;
+  /* 뱃지 글씨 크기 */
+  font-size: 0.9rem;
+  /* 글자 두께 */
+  font-weight: 500;
+}
+
+/* ▼ 직무 제목 ('물류창고보조 시니어(안전관리)' 등) */
+.position-title {
+  /* 직무 제목 글씨 크기 */
+  font-size: 1.1rem;
+  /* 글자 두께 (조금 굵게) */
+  font-weight: 600;
+  /* 제목 아래쪽 여백 */
+  margin-bottom: 0.8rem;
+  /* 제목 글자색 */
+  color: #333;
+  /* 줄 간격 (제목이 두 줄 이상일 때 가독성 향상) */
+  line-height: 1.3;
+  /* 긴 제목은 2줄까지만 표시하고 나머지는 ... 처리 */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ▼ 급여 등 상세 정보를 담는 영역 (화면에는 급여만 보임) */
+.job-details {
+  /* 내부 상세 항목들을 세로로 정렬 */
+  display: flex;
+  flex-direction: column;
+  /* 상세 항목들 사이의 간격 */
+  gap: 0.4rem;
+  /* 상세 정보 영역 아래쪽 여백 */
+  margin-bottom: 1rem;
+}
+
+/* ▼ 개별 상세 항목 ('월급 3,662,000원' 한 줄) */
+.detail-item {
+  /* 아이콘과 텍스트를 가로로 정렬 */
+  display: flex;
+  /* 세로축 중앙 정렬 */
+  align-items: center;
+  /* 아이콘과 텍스트 사이의 간격 */
+  gap: 0.4rem;
+  /* 상세 항목 글씨 크기 */
+  font-size: 1.1rem;
+}
+
+/* ▼ 상세 항목 아이콘 (돈주머니 아이콘 '$') */
+.detail-icon {
+  /* 아이콘 크기 */
+  font-size: 1.1rem;
+}
+
+/* ▼ 카드 하단 버튼 영역 (화면에는 보이지 않으나 코드는 존재) */
+.job-card-footer {
+  /* 버튼들을 가로로 정렬 */
+  display: flex;
+  /* 버튼들 사이의 간격 */
+  gap: 0.4rem;
+}
+
+/* ▼ '지원하기', '저장' 버튼들의 공통 스타일 */
+.btn-apply,
+.btn-save {
+  /* 버튼들이 동일한 너비를 갖도록 설정 (균등 분할) */
+  flex: 1;
+  /* 버튼 안쪽 여백 (카드가 작아진만큼 줄임) */
+  padding: 0.6rem;
+  /* 버튼 기본 테두리 제거 */
+  border: none;
+  /* 버튼 모서리 둥글기 (6px) */
+  border-radius: 6px;
+  /* 마우스오버 시 커서 모양 변경 (손가락) */
+  cursor: pointer;
+  /* 버튼 글씨 크기 */
+  font-size: 0.9rem;
+  /* 글자 두께 */
+  font-weight: 500;
+  /* 스타일 변경 시 부드러운 전환 효과 (0.3초) */
+  transition: all 0.3s ease;
+}
+
+/* ▼ '지원하기' 버튼 스타일 */
+.btn-apply {
+  /* 배경색 (파란빛 보라색) */
+  background: #667eea;
+  /* 글자색 (흰색) */
+  color: white;
+}
+
+/* '지원하기' 버튼에 마우스를 올렸을 때 */
+.btn-apply:hover {
+  /* 마우스오버 시 배경색 변경 (살짝 어둡게) */
+  background: #5a6fd8;
+}
+
+/* ▼ '저장', '공유' 버튼 스타일 */
+.btn-save {
+  /* 배경색 (매우 연한 회색) */
+  background: #f8f9fa;
+  /* 글자색 (진한 회색) */
+  color: #666;
+  /* 테두리 스타일 (1px 회색 실선) */
+  border: 1px solid #ddd;
+}
+
+/* '저장' 또는 '공유' 버튼에 마우스를 올렸을 때 */
+.btn-save:hover {
+  /* 마우스오버 시 배경색 변경 (살짝 진하게) */
+  background: #e9ecef;
+}

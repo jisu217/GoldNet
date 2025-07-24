@@ -50,7 +50,7 @@ const SearchFilter = ({ jobs, setJobs }) => {
               onChange={(e) => handleFilterChange('keyword', e.target.value)}
             />
           </div>
-
+          
           {/* 지역 선택 */}
           <div className="filter-item">
             <label>근무 지역</label>
@@ -79,6 +79,31 @@ const SearchFilter = ({ jobs, setJobs }) => {
             </select>
           </div>
 
+          {/* 직무 카테고리 */}
+          <div className="filter-item">
+            <label>업직종</label>
+            <select
+              value={filters.category}
+              onChange={(e) => handleFilterChange('category', e.target.value)}
+            >
+              <option value="">전체 분야</option>
+              <option value="물류/배송">물류/배송</option>
+              <option value="운송/배송">운송/배송</option>
+              <option value="유통/판매">유통/판매</option>
+              <option value="사무/관리">사무/관리</option>
+              <option value="서비스">서비스</option>
+              <option value="청소/미화">청소/미화</option>
+              <option value="경비/보안">경비/보안</option>
+              <option value="시설관리">시설 관리</option>
+              <option value="돌봄/요양">돌봄/요양</option>
+              <option value="조리/급식">조리/급식</option>
+              <option value="환경/재활용">환경/재활용</option>
+              <option value="교육/강의">교육/강의</option>
+              <option value="상담/안내">상담/안내</option>
+              <option value="기타">기타</option>
+            </select>
+          </div>
+
           {/* 연령대 */}
           <div className="filter-item">
             <label>연령대</label>
@@ -94,31 +119,6 @@ const SearchFilter = ({ jobs, setJobs }) => {
               <option value="70~74세">70~74세</option>
               <option value="75~79세">75~79세</option>
               <option value="80세 이상">80세 이상</option>
-            </select>
-          </div>
-
-          {/* 직무 카테고리 */}
-          <div className="filter-item">
-            <label>직무 분야</label>
-            <select
-              value={filters.category}
-              onChange={(e) => handleFilterChange('category', e.target.value)}
-            >
-              <option value="">전체 분야</option>
-              <option value="물류/배송">물류/배송</option>
-              <option value="운송/배송">운송/배송</option>
-              <option value="유통/판매">유통/판매</option>
-              <option value="사무/관리">사무/관리</option>
-              <option value="서비스">서비스</option>
-              <option value="청소/미화">청소/미화</option>
-              <option value="경비/보안">경비/보안</option>
-              <option value="시설관리">시설관리</option>
-              <option value="돌봄/요양">돌봄/요양</option>
-              <option value="조리/급식">조리/급식</option>
-              <option value="환경/재활용">환경/재활용</option>
-              <option value="교육/강의">교육/강의</option>
-              <option value="상담/안내">상담/안내</option>
-              <option value="기타">기타</option>
             </select>
           </div>
 
@@ -174,7 +174,7 @@ const SearchFilter = ({ jobs, setJobs }) => {
       <div className="popular-keywords">
         <h4>🔥 인기 검색어</h4>
         <div className="keyword-tags">
-          {['돌봄', '청소', '급식', '경비', '안내', '공공근로', '시설관리'].map(keyword => (
+          {['돌봄', '청소', '급식', '경비', '안내', '공공 근로', '시설 관리'].map(keyword => (
             <span
               key={keyword}
               className="keyword-tag"

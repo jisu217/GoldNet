@@ -1,0 +1,57 @@
+/* Header Styles */
+/* ▼ 헤더 전체 영역 */
+.header {
+  background: white; /* 배경색 - 흰색 그라데이션 (단색처럼 보임) */
+  color: #000000; /* 텍스트 기본색 (하지만 실제 텍스트 컬러는 요소별로 별도 설정됨) */
+  padding: 2.5rem 0; /* 위아래 여백 */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08); /* 아래 방향 카드 그림자 효과 */
+  /* 카드 모서리 둥글기 (8px로 줄여서 더 사각형 느낌) */
+  border-radius: 8px;
+}
+
+/* ▼ 헤더 안 컨텐츠를 감싸는 컨테이너 */
+.header-container {
+  max-width: 1200px; /* 최대 너비 지정 */
+  margin: 0 auto; /* 가운데 정렬 */
+  padding: 0 1rem; /* 좌우 여백 */
+  display: flex; /* 가로 정렬 */
+  justify-content: space-between; /* 좌우 끝으로 분산 정렬 */
+  align-items: center; /* 수직 가운데 정렬 */
+}
+
+/* ▼ 로고 영역 */
+.logo h1 {
+  font-size: 2rem; /* 제목 크기 크게 */
+  margin-bottom: 0.25rem; /* 자막과의 간격 */
+}
+
+/* ▼ 로고 아래 자막 */
+.logo .subtitle {
+  font-size: 1.5rem; /* 작은 글씨 */
+  opacity: 0.9; /* 약간 흐리게 */
+}
+
+/* ▼ 통계 정보 묶음 (오른쪽) */
+.header-stats {
+  display: flex; /* 가로 정렬 */
+  gap: 2rem; /* 항목 간 간격 */
+}
+
+/* ▼ 개별 통계 항목 */
+.stat-item {
+  text-align: center; /* 가운데 정렬 */
+}
+
+/* ▼ 통계 숫자 스타일 */
+.stat-number {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: hsl(0, 0%, 0%);
+}
+
+/* ▼ 통계 라벨 텍스트 */
+.stat-label {
+  font-size: 1rem;
+  opacity: 0.9; /* 흐리게 */
+}

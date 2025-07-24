@@ -1,0 +1,163 @@
+/* Statistics Styles */
+/* ▼ 통계 전체 박스 */
+.statistics {
+  background: white; /* 배경 흰색 */
+  border-radius: 12px; /* 모서리 둥글게 */
+  padding: 2rem; /* 내부 여백 */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08); /* 그림자 효과 */
+}
+
+/* ▼ 통계 제목 영역 */
+.stats-header {
+  text-align: center; /* 가운데 정렬 */
+  margin-bottom: 2rem; /* 아래 여백 */
+}
+
+/* ▼ 통계 제목 텍스트 */
+.stats-header h2 {
+  margin-bottom: 0.5rem;
+  color: #333; /* 진회색 텍스트 */
+}
+
+/* ▼ 차트 탭 네비게이션 바 */
+.chart-nav {
+  display: flex; /* 가로 정렬 */
+  justify-content: center; /* 가운데 정렬 */
+  margin-bottom: 2rem;
+  background: #f8f9fa; /* 밝은 회색 배경 */
+  border-radius: 8px; /* 모서리 둥글게 */
+  padding: 0.25rem; /* 내부 여백 */
+}
+
+/* ▼ 개별 차트 탭 버튼 */
+.chart-tab {
+  flex: 1; /* 동일 너비 */
+  padding: 0.75rem 1rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease; /* 부드러운 효과 */
+}
+
+/* ▼ 활성화된 탭 스타일 */
+.chart-tab.active {
+  background: white;
+  color: #667eea; /* 보라색 텍스트 */
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 약한 그림자 */
+}
+
+/* ▼ 연령별 통계 카드 배치 그리드 */
+.age-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 최소 너비 250px로 자동 배치 */
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* ▼ 개별 연령 통계 카드 */
+.age-stat-card {
+  background: #f8f9ff; /* 연한 보라 배경 */
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+/* ▼ 연령대 텍스트 라벨 */
+.age-label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #667eea; /* 보라색 */
+  margin-bottom: 1rem;
+}
+
+/* ▼ 수치 표시 블록(남녀 등) */
+.stat-numbers {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+/* ▼ 개별 수치 박스 */
+.stat-numbers > div {
+  text-align: center;
+}
+
+/* ▼ 숫자 값 */
+.stat-numbers .number {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* ▼ 숫자 설명 라벨 */
+.stat-numbers .label {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* ▼ 비율 막대 배경 */
+.ratio-bar {
+  height: 8px;
+  background: #e0e0e0; /* 연회색 배경 */
+  border-radius: 4px;
+  overflow: hidden; /* 안쪽 채움 넘치지 않게 */
+}
+
+/* ▼ 비율 막대 채움 */
+.ratio-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease; /* 너비 전환 부드럽게 */
+}
+
+/* ▼ 비율 낮음 - 녹색 */
+.ratio-bar.low .ratio-fill {
+  background: #4CAF50;
+}
+
+/* ▼ 비율 중간 - 주황색 */
+.ratio-bar.medium .ratio-fill {
+  background: #FF9800;
+}
+
+/* ▼ 비율 높음 - 빨간색 */
+.ratio-bar.high .ratio-fill {
+  background: #F44336;
+}
+
+/* ▼ 인사이트 알림 박스 */
+.insights {
+  background: #fff3cd; /* 연노랑 배경 */
+  border: 1px solid #ffeaa7; /* 노랑 테두리 */
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* ▼ 인사이트 제목 */
+.insights h5 {
+  margin-bottom: 0.5rem;
+  color: #856404; /* 진한 갈색 */
+}
+
+/* ▼ 인사이트 항목 목록 (ul 기본 스타일 제거) */
+.insights ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* ▼ 개별 인사이트 항목 */
+.insights li {
+  padding: 0.25rem 0;
+  color: #856404;
+}
+
+/* ▼ 인사이트 앞 점 표시 (노랑색 원) */
+.insights li::before {
+  content: "• ";
+  color: #ffc107;
+  font-weight: bold;
+}

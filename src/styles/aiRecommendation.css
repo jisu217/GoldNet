@@ -1,0 +1,234 @@
+/* AI Recommendation Styles */
+/* ▼ AI 추천 영역 전체 박스 */
+.ai-recommendation {
+  background: white; /* 배경색 흰색 */
+  border-radius: 12px; /* 모서리 둥글게 */
+  padding: 2rem; /* 내부 여백 */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08); /* 그림자 효과 */
+}
+
+/* ▼ 진행 단계 표시줄 전체 */
+.step-indicator {
+  display: flex; /* 가로 정렬 */
+  justify-content: center; /* 가운데 정렬 */
+  margin-bottom: 2rem; /* 아래 여백 */
+  position: relative; /* ::before 절대 위치 기준 */
+}
+
+/* ▼ 단계 표시줄의 가로 선 */
+.step-indicator::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background: #e0e0e0; /* 회색 선 */
+  z-index: 1; /* 다른 요소보다 뒤에 배치 */
+}
+
+/* ▼ 각 단계 (원과 텍스트 포함) */
+.step {
+  display: flex;
+  flex-direction: column; /* 세로 정렬 */
+  align-items: center;
+  gap: 0.5rem; /* 원과 텍스트 간격 */
+  position: relative;
+  z-index: 2; /* 선 위에 배치 */
+}
+
+/* ▼ 단계 안의 원 스타일 */
+.step span {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+/* ▼ 활성화된 단계의 원 스타일 */
+.step.active span {
+  background: #667eea; /* 보라색 배경 */
+  color: white;
+}
+
+/* ▼ 각 단계의 텍스트 (기본) */
+.step label {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* ▼ 활성화된 단계 텍스트 스타일 */
+.step.active label {
+  color: #667eea;
+  font-weight: 500;
+}
+
+/* ▼ 입력 필드 그룹 */
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+/* ▼ 라벨 스타일 */
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* ▼ 입력창과 셀렉트박스 스타일 */
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* ▼ 선택된 기술 태그 리스트 */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* ▼ 개별 기술 태그 스타일 */
+.skill-tag {
+  background: #e3ebff;
+  color: #667eea;
+  padding: 0.5rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ▼ 기술 태그 안의 삭제 버튼 스타일 */
+.skill-tag button {
+  background: none;
+  border: none;
+  color: #667eea;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ▼ 다음 단계, 이전 단계, 분석 버튼 공통 스타일 */
+.btn-next-step,
+.btn-prev-step,
+.btn-analyze {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* ▼ 다음 단계, 분석 버튼 스타일 */
+.btn-next-step,
+.btn-analyze {
+  background: #667eea;
+  color: white;
+}
+
+/* ▼ 마우스 호버 시 버튼 색상 변경 */
+.btn-next-step:hover,
+.btn-analyze:hover {
+  background: #5a6fd8;
+}
+
+/* ▼ 비활성화된 다음 버튼 스타일 */
+.btn-next-step:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* ▼ 이전 버튼 스타일 */
+.btn-prev-step {
+  background: #f8f9fa;
+  color: #666;
+  border: 1px solid #ddd;
+  margin-right: 1rem;
+}
+
+/* ▼ 분석 중 화면 스타일 */
+.analyzing-screen {
+  text-align: center;
+  padding: 3rem;
+}
+
+/* ▼ 로딩 스피너 스타일 */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+/* ▼ 로딩 스피너 회전 애니메이션 */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ▼ 추천 카드 스타일 */
+.recommendation-card {
+  background: #f8f9ff;
+  border: 1px solid #e3ebff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* ▼ 매칭 점수 영역 */
+.match-score {
+  text-align: center;
+}
+
+/* ▼ 점수 원 스타일 */
+.score-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ▼ 점수 숫자 스타일 */
+.score-number {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* ▼ 점수 라벨 텍스트 */
+.score-label {
+  font-size: 0.7rem;
+}
+

@@ -24,7 +24,7 @@ function App() {
     {
       id: 2,
       company: "오아시스",
-      position: "오아시스 신입사원 물량 / 재료 / 배송 / 운반",
+      position: "오아시스 신입사원 물량/재료/배송/운반",
       salary: "월급 5,000,000원",
       location: "서울시",
       ageGroup: "60대",
