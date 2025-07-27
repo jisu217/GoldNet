@@ -83,7 +83,7 @@
 /* 직종 카테고리 ('물류/배송', '유통/판매' 등) */
 .job-category {
   /* 카테고리 글씨 크기 */
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   /* 카테고리 태그의 안쪽 여백 */
   padding: 0.2rem 0.4rem;
   /* 카테고리 태그의 모서리 둥글기 */
@@ -101,7 +101,7 @@
   /* 뱃지 모서리를 둥글게 (알약 모양) */
   border-radius: 15px;
   /* 뱃지 글씨 크기 */
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   /* 글자 두께 */
   font-weight: 500;
 }
@@ -109,7 +109,7 @@
 /* 직무 제목 ('물류창고보조 시니어(안전관리)' 등) */
 .position-title {
   /* 직무 제목 글씨 크기 */
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   /* 글자 두께 (조금 굵게) */
   font-weight: 600;
   /* 제목 아래쪽 여백 */
@@ -145,7 +145,7 @@
   /* 아이콘과 텍스트 사이의 간격 */
   gap: 0.4rem;
   /* 상세 항목 글씨 크기 */
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 /* 상세 항목 아이콘 (돈주머니 아이콘 '$') */
@@ -176,7 +176,7 @@
   /* 마우스오버 시 커서 모양 변경 (손가락) */
   cursor: pointer;
   /* 버튼 글씨 크기 */
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   /* 글자 두께 */
   font-weight: 500;
   /* 스타일 변경 시 부드러운 전환 효과 (0.3초) */

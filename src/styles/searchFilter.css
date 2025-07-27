@@ -99,7 +99,7 @@
   /* 마우스오버 시 커서 모양 변경 (손가락) */
   cursor: pointer;
   /* 버튼 글씨 크기 */
-  font-size: 1rem;
+  font-size: 1.2rem;
   /* 글자 두께 */
   font-weight: 500;
   /* 스타일 변경 시 부드러운 전환 효과 (0.3초) */
