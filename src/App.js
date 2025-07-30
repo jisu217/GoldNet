@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
 import './App.css';
 
-// 컴포넌트들
 import Header from './components/Header';
 import SearchFilter from './components/SearchFilter';
 import JobCard from './components/JobCard';
 import Statistics from './components/Statistics';
 import AIRecommendation from './components/AIRecommendation';
-// 👆 새로 추가: JobDetail 컴포넌트를 import 합니다
 import JobDetail from './components/JobDetail';
 
 function App() {
   const [currentTab, setCurrentTab] = useState('jobs');
   
-  // 👆 새로 추가: 선택된 job을 관리하는 상태입니다
   const [selectedJob, setSelectedJob] = useState(null);
-  
-  // 👆 기존 jobs 데이터에 상세 정보를 추가해야 합니다
+
   const [jobs, setJobs] = useState([
     {
       id: 1,
@@ -27,8 +23,8 @@ function App() {
       ageGroup: "50대",
       experience: "경력무관",
       category: "물류/배송",
-      // 👆 여기부터 상세 정보 추가
-      title: "물류창고보조 시니어(안전관리)", // JobDetail에서 사용할 제목
+      // 상세 정보 추가
+      title: "물류창고보조 시니어(안전관리)",
       brand: "쿠팡 풀필먼트 서비스",
       employmentType: "정규직",
       workPeriod: "장기근무",
@@ -115,7 +111,7 @@ function App() {
         "직원할인 혜택"
       ]
     },
-    // 나머지 jobs는 간단하게 추가 (실제로는 모든 job에 상세 정보를 추가해야 합니다)
+    
     {
       id: 4,
       company: "이마트", position: "이마트 물류센터 스태프 모집", salary: "시급 11,200원",
@@ -180,12 +176,10 @@ function App() {
     preferredSalary: ''
   });
 
-  // 👆 새로 추가: 지원하기 버튼을 클릭했을 때 실행되는 함수
   const handleApplyClick = (job) => {
     setSelectedJob(job); // 선택된 job을 상태에 저장
   };
 
-  // 👆 새로 추가: JobDetail 모달을 닫는 함수
   const handleCloseJobDetail = () => {
     setSelectedJob(null); // 선택된 job을 null로 설정하여 모달 닫기
   };
@@ -272,7 +266,6 @@ function App() {
         <p>노인 일자리 현황 분석 및 정책 제언을 위한 데이터 기반 플랫폼</p>
       </footer>
 
-      {/* 👆 새로 추가: JobDetail 모달 - selectedJob이 있을 때만 보여줍니다 */}
       {selectedJob && (
         <JobDetail 
           job={selectedJob} 

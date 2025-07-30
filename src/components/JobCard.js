@@ -1,7 +1,6 @@
 // 개별 일자리 공고 카드
 import React from 'react';
 
-// 👆 여기가 중요한 변화입니다! onApplyClick이라는 새로운 prop을 받습니다
 const JobCard = ({ job, onApplyClick }) => {
   const getCompanyLogo = (company) => {
     const logos = {
@@ -30,11 +29,9 @@ const JobCard = ({ job, onApplyClick }) => {
     return colors[category] || '#F5F5F5';
   };
 
-  // 👆 새로 추가된 함수입니다! 지원하기 버튼을 클릭했을 때 실행됩니다
   const handleApplyClick = () => {
-    // onApplyClick이 있으면 (부모 컴포넌트에서 전달받았으면) 실행합니다
     if (onApplyClick) {
-      onApplyClick(job); // 현재 job 정보를 부모 컴포넌트로 전달
+      onApplyClick(job);
     }
   };
 
@@ -74,7 +71,6 @@ const JobCard = ({ job, onApplyClick }) => {
       </div>
 
       <div className="job-card-footer">
-        {/* 👆 여기가 가장 중요한 변화입니다! onClick 이벤트를 추가했어요 */}
         <button className="btn-apply" onClick={handleApplyClick}>
           지원하기
         </button>

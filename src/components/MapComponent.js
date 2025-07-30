@@ -1,3 +1,5 @@
+// 카카오 지도 API를 이용한 주소 기반 지도 표시 컴포넌트
+
 import React, { useEffect, useRef } from 'react';
 import '../styles/mapComponent.css';
 
