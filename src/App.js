@@ -7,9 +7,16 @@ import SearchFilter from './components/SearchFilter';
 import JobCard from './components/JobCard';
 import Statistics from './components/Statistics';
 import AIRecommendation from './components/AIRecommendation';
+// 👆 새로 추가: JobDetail 컴포넌트를 import 합니다
+import JobDetail from './components/JobDetail';
 
 function App() {
   const [currentTab, setCurrentTab] = useState('jobs');
+  
+  // 👆 새로 추가: 선택된 job을 관리하는 상태입니다
+  const [selectedJob, setSelectedJob] = useState(null);
+  
+  // 👆 기존 jobs 데이터에 상세 정보를 추가해야 합니다
   const [jobs, setJobs] = useState([
     {
       id: 1,
@@ -19,7 +26,30 @@ function App() {
       location: "경기도",
       ageGroup: "50대",
       experience: "경력무관",
-      category: "물류/배송"
+      category: "물류/배송",
+      // 👆 여기부터 상세 정보 추가
+      title: "물류창고보조 시니어(안전관리)", // JobDetail에서 사용할 제목
+      brand: "쿠팡 풀필먼트 서비스",
+      employmentType: "정규직",
+      workPeriod: "장기근무",
+      workDays: "주 5일 (월~금)",
+      workHours: "09:00 - 18:00",
+      deadline: "2025-08-30",
+      education: "고졸 이상",
+      recruitCount: "5명",
+      address: "경기도 김포시 물류단지로 123",
+      description: "물류창고에서 안전관리 업무를 담당하실 시니어 분을 모집합니다. 풍부한 경험을 바탕으로 안전한 작업환경 조성에 기여해주세요.",
+      requirements: [
+        "50세 이상 경력자 우대",
+        "성실하고 책임감 있는 분",
+        "안전관리에 관심이 있는 분"
+      ],
+      benefits: [
+        "4대보험 완비",
+        "퇴직금 지급",
+        "연차 및 각종 휴가",
+        "교통비 지원"
+      ]
     },
     {
       id: 2,
@@ -29,7 +59,30 @@ function App() {
       location: "서울시",
       ageGroup: "60대",
       experience: "신입",
-      category: "운송/배송"
+      category: "운송/배송",
+      // 상세 정보 추가
+      title: "오아시스 신입사원 물량/재료/배송/운반",
+      brand: "오아시스",
+      employmentType: "정규직",
+      workPeriod: "장기근무",
+      workDays: "주 6일 (월~토)",
+      workHours: "08:00 - 17:00",
+      deadline: "2025-08-25",
+      education: "학력무관",
+      recruitCount: "3명",
+      address: "서울특별시 강서구 공항대로 456",
+      description: "물량 관리 및 배송 업무를 담당하실 신입 직원을 모집합니다.",
+      requirements: [
+        "60세 이상 가능",
+        "운전면허 보유자 우대",
+        "체력이 좋으신 분"
+      ],
+      benefits: [
+        "4대보험 완비",
+        "중식 제공",
+        "유니폼 지급",
+        "성과급 지급"
+      ]
     },
     {
       id: 3,
@@ -39,67 +92,83 @@ function App() {
       location: "인천시",
       ageGroup: "50대",
       experience: "경력무관",
-      category: "유통/판매"
+      category: "유통/판매",
+      // 상세 정보 추가
+      title: "이마트 물류센터 스태프 모집",
+      brand: "이마트",
+      employmentType: "아르바이트",
+      workPeriod: "3개월 이상",
+      workDays: "주 5일 (월~금)",
+      workHours: "09:00 - 18:00",
+      deadline: "2025-09-01",
+      education: "학력무관",
+      recruitCount: "10명",
+      address: "인천광역시 서구 물류단지로 789",
+      description: "이마트 물류센터에서 상품 정리 및 포장 업무를 담당하실 분을 모집합니다.",
+      requirements: [
+        "성실하고 꼼꼼한 분",
+        "팀워크가 좋으신 분"
+      ],
+      benefits: [
+        "주휴수당 지급",
+        "교통비 지원",
+        "직원할인 혜택"
+      ]
     },
+    // 나머지 jobs는 간단하게 추가 (실제로는 모든 job에 상세 정보를 추가해야 합니다)
     {
       id: 4,
-      company: "이마트",
-      position: "이마트 물류센터 스태프 모집",
-      salary: "시급 11,200원",
-      location: "인천시",
-      ageGroup: "50대",
-      experience: "경력무관",
-      category: "유통/판매"
+      company: "이마트", position: "이마트 물류센터 스태프 모집", salary: "시급 11,200원",
+      location: "인천시", ageGroup: "50대", experience: "경력무관", category: "유통/판매",
+      title: "이마트 물류센터 스태프 모집", brand: "이마트", employmentType: "아르바이트",
+      workPeriod: "3개월 이상", workDays: "주 5일", workHours: "09:00 - 18:00",
+      deadline: "2025-09-01", education: "학력무관", recruitCount: "10명",
+      address: "인천광역시 서구 물류단지로 789", description: "물류센터 업무", requirements: ["성실한 분"], benefits: ["교통비 지원"]
     },
     {
       id: 5,
-      company: "이마트",
-      position: "이마트 물류센터 스태프 모집",
-      salary: "시급 11,200원",
-      location: "인천시",
-      ageGroup: "50대",
-      experience: "경력무관",
-      category: "유통/판매"
+      company: "이마트", position: "이마트 물류센터 스태프 모집", salary: "시급 11,200원",
+      location: "인천시", ageGroup: "50대", experience: "경력무관", category: "유통/판매",
+      title: "이마트 물류센터 스태프 모집", brand: "이마트", employmentType: "아르바이트",
+      workPeriod: "3개월 이상", workDays: "주 5일", workHours: "09:00 - 18:00",
+      deadline: "2025-09-01", education: "학력무관", recruitCount: "10명",
+      address: "인천광역시 서구 물류단지로 789", description: "물류센터 업무", requirements: ["성실한 분"], benefits: ["교통비 지원"]
     },
     {
       id: 6,
-      company: "이마트",
-      position: "이마트 물류센터 스태프 모집",
-      salary: "시급 11,200원",
-      location: "인천시",
-      ageGroup: "50대",
-      experience: "경력무관",
-      category: "유통/판매"
+      company: "이마트", position: "이마트 물류센터 스태프 모집", salary: "시급 11,200원",
+      location: "인천시", ageGroup: "50대", experience: "경력무관", category: "유통/판매",
+      title: "이마트 물류센터 스태프 모집", brand: "이마트", employmentType: "아르바이트",
+      workPeriod: "3개월 이상", workDays: "주 5일", workHours: "09:00 - 18:00",
+      deadline: "2025-09-01", education: "학력무관", recruitCount: "10명",
+      address: "인천광역시 서구 물류단지로 789", description: "물류센터 업무", requirements: ["성실한 분"], benefits: ["교통비 지원"]
     },
     {
       id: 7,
-      company: "이마트",
-      position: "이마트 물류센터 스태프 모집",
-      salary: "시급 11,200원",
-      location: "인천시",
-      ageGroup: "50대",
-      experience: "경력무관",
-      category: "유통/판매"
+      company: "이마트", position: "이마트 물류센터 스태프 모집", salary: "시급 11,200원",
+      location: "인천시", ageGroup: "50대", experience: "경력무관", category: "유통/판매",
+      title: "이마트 물류센터 스태프 모집", brand: "이마트", employmentType: "아르바이트",
+      workPeriod: "3개월 이상", workDays: "주 5일", workHours: "09:00 - 18:00",
+      deadline: "2025-09-01", education: "학력무관", recruitCount: "10명",
+      address: "인천광역시 서구 물류단지로 789", description: "물류센터 업무", requirements: ["성실한 분"], benefits: ["교통비 지원"]
     },
     {
       id: 8,
-      company: "이마트",
-      position: "이마트 물류센터 스태프 모집",
-      salary: "시급 11,200원",
-      location: "인천시",
-      ageGroup: "50대",
-      experience: "경력무관",
-      category: "유통/판매"
+      company: "이마트", position: "이마트 물류센터 스태프 모집", salary: "시급 11,200원",
+      location: "인천시", ageGroup: "50대", experience: "경력무관", category: "유통/판매",
+      title: "이마트 물류센터 스태프 모집", brand: "이마트", employmentType: "아르바이트",
+      workPeriod: "3개월 이상", workDays: "주 5일", workHours: "09:00 - 18:00",
+      deadline: "2025-09-01", education: "학력무관", recruitCount: "10명",
+      address: "인천광역시 서구 물류단지로 789", description: "물류센터 업무", requirements: ["성실한 분"], benefits: ["교통비 지원"]
     },
     {
       id: 9,
-      company: "이마트",
-      position: "이마트 물류센터 스태프 모집",
-      salary: "시급 11,200원",
-      location: "인천시",
-      ageGroup: "50대",
-      experience: "경력무관",
-      category: "유통/판매"
+      company: "이마트", position: "이마트 물류센터 스태프 모집", salary: "시급 11,200원",
+      location: "인천시", ageGroup: "50대", experience: "경력무관", category: "유통/판매",
+      title: "이마트 물류센터 스태프 모집", brand: "이마트", employmentType: "아르바이트",
+      workPeriod: "3개월 이상", workDays: "주 5일", workHours: "09:00 - 18:00",
+      deadline: "2025-09-01", education: "학력무관", recruitCount: "10명",
+      address: "인천광역시 서구 물류단지로 789", description: "물류센터 업무", requirements: ["성실한 분"], benefits: ["교통비 지원"]
     }
   ]);
 
@@ -110,6 +179,16 @@ function App() {
     preferredLocation: '',
     preferredSalary: ''
   });
+
+  // 👆 새로 추가: 지원하기 버튼을 클릭했을 때 실행되는 함수
+  const handleApplyClick = (job) => {
+    setSelectedJob(job); // 선택된 job을 상태에 저장
+  };
+
+  // 👆 새로 추가: JobDetail 모달을 닫는 함수
+  const handleCloseJobDetail = () => {
+    setSelectedJob(null); // 선택된 job을 null로 설정하여 모달 닫기
+  };
 
   const navigationTabs = [
     { id: 'jobs', label: '통합 일자리 검색', icon: '🔍' },
@@ -128,7 +207,11 @@ function App() {
               <h3>전체 {jobs.length}개의 일자리</h3>
               <div className="job-grid">
                 {jobs.map(job => (
-                  <JobCard key={job.id} job={job} />
+                  <JobCard 
+                    key={job.id} 
+                    job={job} 
+                    onApplyClick={handleApplyClick}
+                  />
                 ))}
               </div>
             </div>
@@ -188,6 +271,14 @@ function App() {
       <footer className="footer">
         <p>노인 일자리 현황 분석 및 정책 제언을 위한 데이터 기반 플랫폼</p>
       </footer>
+
+      {/* 👆 새로 추가: JobDetail 모달 - selectedJob이 있을 때만 보여줍니다 */}
+      {selectedJob && (
+        <JobDetail 
+          job={selectedJob} 
+          onClose={handleCloseJobDetail}
+        />
+      )}
     </div>
   );
 }
