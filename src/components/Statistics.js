@@ -1,4 +1,4 @@
-// 데이터 시각화 영역
+// 3. 현황 분석
 
 import React, { useState } from 'react';
 

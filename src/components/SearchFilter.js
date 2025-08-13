@@ -3,6 +3,9 @@
 import React, { useState } from 'react';
 
 const SearchFilter = ({ jobs, setJobs }) => {
+  // 원본 데이터를 보관하기 위한 state 추가
+  const [originalJobs] = useState(jobs);
+  
   const [filters, setFilters] = useState({
     keyword: '',
     location: '',
@@ -11,6 +14,38 @@ const SearchFilter = ({ jobs, setJobs }) => {
     experience: '',
     salaryRange: ''
   });
+
+  // 급여에서 숫자만 추출하는 함수
+  const extractSalaryNumber = (salaryString) => {
+    const match = salaryString.match(/[\d,]+/);
+    return match ? parseInt(match[0].replace(/,/g, '')) : 0;
+  };
+
+  // 급여 범위 체크 함수
+  const checkSalaryRange = (jobSalary, range) => {
+    const salary = extractSalaryNumber(jobSalary);
+    
+    switch(range) {
+      case '~100만원':
+        return salary <= 1000000;
+      case '100-150만원':
+        return salary >= 1000000 && salary <= 1500000;
+      case '150-200만원':
+        return salary >= 1500000 && salary <= 2000000;
+      case '200-250만원':
+        return salary >= 2000000 && salary <= 2500000;
+      case '250-300만원':
+        return salary >= 2500000 && salary <= 3000000;
+      case '300-350만원':
+        return salary >= 3000000 && salary <= 3500000;
+      case '350-400만원':
+        return salary >= 3500000 && salary <= 4000000;
+      case '400만원 이상':
+        return salary >= 4000000;
+      default:
+        return true;
+    }
+  };
 
   const handleFilterChange = (key, value) => {
     setFilters(prev => ({
@@ -21,6 +56,45 @@ const SearchFilter = ({ jobs, setJobs }) => {
 
   const applyFilters = () => {
     console.log('필터 적용:', filters);
+    
+    let filteredJobs = [...originalJobs];
+
+    // 키워드 필터
+    if (filters.keyword) {
+      filteredJobs = filteredJobs.filter(job => 
+        job.position.toLowerCase().includes(filters.keyword.toLowerCase()) ||
+        job.company.toLowerCase().includes(filters.keyword.toLowerCase()) ||
+        job.description?.toLowerCase().includes(filters.keyword.toLowerCase())
+      );
+    }
+
+    // 지역 필터
+    if (filters.location) {
+      filteredJobs = filteredJobs.filter(job => job.location === filters.location);
+    }
+
+    // 연령대 필터
+    if (filters.ageGroup) {
+      filteredJobs = filteredJobs.filter(job => job.ageGroup === filters.ageGroup);
+    }
+
+    // 직종 필터
+    if (filters.category) {
+      filteredJobs = filteredJobs.filter(job => job.category === filters.category);
+    }
+
+    // 경력 필터
+    if (filters.experience) {
+      filteredJobs = filteredJobs.filter(job => job.experience === filters.experience);
+    }
+
+    // 급여 범위 필터
+    if (filters.salaryRange) {
+      filteredJobs = filteredJobs.filter(job => checkSalaryRange(job.salary, filters.salaryRange));
+    }
+
+    // 필터링된 결과를 부모 컴포넌트에 전달
+    setJobs(filteredJobs);
   };
 
   const clearFilters = () => {
@@ -32,13 +106,14 @@ const SearchFilter = ({ jobs, setJobs }) => {
       experience: '',
       salaryRange: ''
     });
+    // 원본 데이터로 복원
+    setJobs(originalJobs);
   };
 
   return (
     <div className="search-filter">
       <div className="filter-section">
         <h3>🔍 일자리 검색 및 필터</h3>
-        
         <div className="filter-grid">
           {/* 키워드 검색 */}
           <div className="filter-item">
@@ -50,7 +125,7 @@ const SearchFilter = ({ jobs, setJobs }) => {
               onChange={(e) => handleFilterChange('keyword', e.target.value)}
             />
           </div>
-          
+
           {/* 지역 선택 */}
           <div className="filter-item">
             <label>근무 지역</label>

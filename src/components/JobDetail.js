@@ -1,4 +1,5 @@
 // 채용 공고 상세 정보 모달 UI 컴포넌트
+
 import React from 'react';
 import MapComponent from './MapComponent'; // 주소 기반 지도 컴포넌트
 import '../styles/jobDetail.css'; // CSS 스타일링 파일 불러오기
