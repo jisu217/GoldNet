@@ -184,12 +184,12 @@ function App() {
     setSelectedJob(null); // 선택된 job을 null로 설정하여 모달 닫기
   };
 
-  const navigationTabs = [
-    { id: 'jobs', label: '통합 일자리 검색', icon: '🔍' },
-    { id: 'ai-recommend', label: 'AI 맞춤 추천', icon: '🤖' },
-    { id: 'statistics', label: '현황 분석', icon: '📊' },
-    { id: 'training', label: '훈련 프로그램', icon: '📚' }
-  ];
+// const navigationTabs = [
+//   { id: 'jobs', label: '통합 일자리 검색', icon: '🔍' },
+//   { id: 'ai-recommend', label: 'AI 맞춤 추천', icon: '🤖' },
+//   { id: 'statistics', label: '현황 분석', icon: '📊' },
+//   { id: 'training', label: '훈련 프로그램', icon: '📚' }
+// ];
 
   const renderContent = () => {
     switch(currentTab) {
@@ -241,20 +241,6 @@ function App() {
   return (
     <div className="App">
       <Header />
-      
-      {/* 네비게이션 탭 */}
-      <nav className="main-navigation">
-        {navigationTabs.map(tab => (
-          <button
-            key={tab.id}
-            className={`nav-tab ${currentTab === tab.id ? 'active' : ''}`}
-            onClick={() => setCurrentTab(tab.id)}
-          >
-            <span className="tab-icon">{tab.icon}</span>
-            <span className="tab-label">{tab.label}</span>
-          </button>
-        ))}
-      </nav>
 
       {/* 메인 컨텐츠 */}
       <main className="main-content">

@@ -113,7 +113,7 @@
 
 /* 근무지역 */
 .location-info .address {
-  font-size: 25px; /* 글자 크기 */
+  font-size: 30px; /* 글자 크기 */
   color: #333; /* 텍스트 색 */
   margin-bottom: 16px; /* 아래 마진 */
   padding: 12px 16px; /* 여백 */
@@ -136,7 +136,7 @@
 
 .job-description p {
   color: #444; /* 텍스트 색 */
-  font-size: 26px; /* 글자 크기 */
+  font-size: 30px; /* 글자 크기 */
   margin-bottom: 20px; /* 아래 마진 */
 }
 
@@ -150,7 +150,7 @@
 
 .requirements h4, .benefits h4 {
   color: #333; /* 텍스트 색 */
-  font-size: 26px; /* 글자 크기 */
+  font-size: 30px; /* 글자 크기 */
   font-weight: 600; /* 굵기 */
   margin: 0 0 12px 0; /* 아래 마진 */
 }
@@ -180,7 +180,7 @@
   padding: 12px 24px; /* 내부 여백 */
   border: none; /* 테두리 없음 */
   border-radius: 8px; /* 둥근 모서리 */
-  font-size: 26px; /* 글자 크기 */
+  font-size: 30px; /* 글자 크기 */
   font-weight: 600; /* 굵기 */
   cursor: pointer; /* 마우스 포인터 변경 */
   transition: all 0.2s ease; /* 전환 효과 */

@@ -22,13 +22,13 @@
 
 /* 로고 영역 */
 .logo h1 {
-  font-size: 2rem; /* 제목 크기 크게 */
+  font-size: 2.5rem; /* 제목 크기 크게 */
   margin-bottom: 0.25rem; /* 자막과의 간격 */
 }
 
 /* 로고 아래 자막 */
 .logo .subtitle {
-  font-size: 1.5rem; /* 작은 글씨 */
+  font-size: 2rem; /* 작은 글씨 */
   opacity: 0.9; /* 약간 흐리게 */
 }
 
@@ -46,13 +46,13 @@
 /* 통계 숫자 스타일 */
 .stat-number {
   display: block;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
   color: hsl(0, 0%, 0%);
 }
 
 /* 통계 라벨 텍스트 */
 .stat-label {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   opacity: 0.9; /* 흐리게 */
 }

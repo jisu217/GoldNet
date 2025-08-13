@@ -63,10 +63,6 @@ const JobCard = ({ job, onApplyClick }) => {
             <span className="detail-icon">📍</span>
             <span className="detail-text">{job.location}</span>
           </div>
-          <div className="detail-item">
-            <span className="detail-icon">👔</span>
-            <span className="detail-text">{job.experience}</span>
-          </div>
         </div>
       </div>
 

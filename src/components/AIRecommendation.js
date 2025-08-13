@@ -1,6 +1,6 @@
-// 2. AI 맞춤 추천 페이지
+/* // 2. AI 맞춤 추천 페이지
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; 
 
 const AIRecommendation = ({ userProfile, setUserProfile, jobs }) => {
   const [step, setStep] = useState(1);
@@ -257,4 +257,4 @@ const AIRecommendation = ({ userProfile, setUserProfile, jobs }) => {
   );
 };
 
-export default AIRecommendation;
+export default AIRecommendation; */
