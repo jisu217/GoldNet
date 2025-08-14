@@ -18,6 +18,7 @@
   display: flex; /* 가로 정렬 */
   justify-content: space-between; /* 좌우 끝으로 분산 정렬 */
   align-items: center; /* 수직 가운데 정렬 */
+  position: relative; /* 드롭다운 메뉴를 위한 상대 위치 */
 }
 
 /* 로고 영역 */
@@ -55,4 +56,136 @@
 .stat-label {
   font-size: 1.5rem;
   opacity: 0.9; /* 흐리게 */
+}
+
+/* User Menu Styles */
+
+/* 사용자 메뉴 전체 영역 */
+.user-menu {
+  position: relative;
+  margin-left: 2rem;
+}
+
+/* 프로필 버튼 */
+.profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: none;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 5rem;
+}
+
+.profile-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* 프로필 아이콘 */
+.profile-icon {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  border: 2px solid #e0e0e0;
+}
+
+/* 프로필 이름 */
+.profile-name {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* 드롭다운 화살표 */
+.arrow {
+  font-size: 5rem;
+  color: #666;
+  transition: transform 0.2s ease;
+}
+
+.arrow.up {
+  transform: rotate(180deg);
+}
+
+/* 드롭다운 메뉴 */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 18rem;
+  z-index: 1000;
+  margin-top: 0.4rem;
+  overflow: hidden;
+}
+
+/* 메뉴 항목 */
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 1.6rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.menu-item:hover {
+  background-color: #f5f5f5;
+}
+
+/* 로그아웃 항목 특별 스타일 */
+.menu-item.logout {
+  color: #e74c3c;
+}
+
+.menu-item.logout:hover {
+  background-color: #fef2f2;
+}
+
+/* 메뉴 아이콘 */
+.menu-icon {
+  font-size: 1.6rem;
+  width: 2rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* 메뉴 구분선 */
+.menu-divider {
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 0.4rem 0;
+}
+
+/* 반응형 디자인 - 작은 화면에서 */
+@media (max-width: 768px) {
+  .header-stats {
+    display: none; /* 모바일에서는 통계 정보 숨김 */
+  }
+  
+  .user-menu {
+    margin-left: 1rem;
+  }
+  
+  .profile-name {
+    display: none; /* 모바일에서는 이름 숨김 */
+  }
+  
+  .dropdown-menu {
+    min-width: 16rem;
+    right: -1rem; /* 화면 가장자리 고려 */
+  }
 }
