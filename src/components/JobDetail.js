@@ -66,7 +66,7 @@ const JobDetail = ({ job, onClose }) => {
             <h3>모집 조건</h3>
             <div className="condition-grid">
               <div className="condition-item">
-                <span className="label">모집 인원:</span>
+                <span className="label">모집인원:</span>
                 <span className="value">{job.recruitCount}</span>
               </div>
               <div className="condition-item">
@@ -74,7 +74,7 @@ const JobDetail = ({ job, onClose }) => {
                 <span className="value">{job.education}</span>
               </div>
               <div className="condition-item">
-                <span className="label">모집 마감:</span>
+                <span className="label">모집마감:</span>
                 <span className="value">{job.deadline}</span>
               </div>
             </div>

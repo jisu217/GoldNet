@@ -248,9 +248,7 @@ function App() {
       </main>
 
       {/* 푸터 */}
-      <footer className="footer">
-        <p>노인 일자리 현황 분석 및 정책 제언을 위한 데이터 기반 플랫폼</p>
-      </footer>
+      <footer className="footer"></footer>
 
       {selectedJob && (
         <JobDetail 

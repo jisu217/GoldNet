@@ -1,4 +1,5 @@
 // 개별 일자리 공고 카드
+
 import React from 'react';
 
 const JobCard = ({ job, onApplyClick }) => {

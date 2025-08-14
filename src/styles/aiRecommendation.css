@@ -1,234 +1,236 @@
-/* AI Recommendation Styles */
+/*
+AI Recommendation Styles
 
-/* ▼ AI 추천 영역 전체 박스 */
+▼ AI 추천 영역 전체 박스
 .ai-recommendation {
-  background: white; /* 배경색 흰색 */
-  border-radius: 12px; /* 모서리 둥글게 처리 */
-  padding: 2rem; /* 전체 내부 여백 */
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08); /* 그림자 효과 */
+  background: white; 
+  border-radius: 12px; 
+  padding: 2rem; 
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08); 
 }
 
-/* ▼ 진행 단계 표시줄 전체 */
+▼ 진행 단계 표시줄 전체
 .step-indicator {
-  display: flex; /* 요소들을 가로로 정렬 */
-  justify-content: center; /* 가운데 정렬 */
-  margin-bottom: 2rem; /* 아래 여백 */
-  position: relative; /* ::before의 기준 위치 */
+  display: flex; 
+  justify-content: center; 
+  margin-bottom: 2rem; 
+  position: relative; 
 }
 
-/* ▼ 단계 표시줄의 가로 선 */
+▼ 단계 표시줄의 가로 선
 .step-indicator::before {
-  content: ''; /* 내용 없음 */
-  position: absolute; /* 절대 위치 지정 */
-  top: 15px; /* 위에서 15px 위치 */
-  left: 5%; /* 왼쪽에서 25% 시작 */
-  right: 5%; /* 오른쪽에서 25% 끝 */
-  height: 2px; /* 높이 2px */
-  background: #e0e0e0; /* 회색 배경 */
-  z-index: 1; /* 다른 요소보다 뒤에 배치 */
+  content: ''; 
+  position: absolute; 
+  top: 15px; 
+  left: 5%; 
+  right: 5%; 
+  height: 2px; 
+  background: #e0e0e0; 
+  z-index: 1; 
 }
 
-/* ▼ 각 단계 (원 + 텍스트 포함) */
+▼ 각 단계 (원 + 텍스트 포함)
 .step {
-  display: flex; /* 플렉스 박스 사용 */
-  flex-direction: column; /* 세로 방향 정렬 */
-  align-items: center; /* 가로축 가운데 정렬 */
-  gap: 1rem; /* 요소 간 간격 */
-  position: relative; /* 상대 위치 지정 */
-  z-index: 2; /* ::before보다 위에 배치 */
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 1rem; 
+  position: relative; 
+  z-index: 2; 
 }
 
-/* ▼ 단계 안의 원 스타일 */
+▼ 단계 안의 원 스타일
 .step span {
-  width: 30px; /* 너비 30px */
-  height: 30px; /* 높이 30px */
-  border-radius: 50%; /* 완전한 원 */
-  background: #e0e0e0; /* 회색 배경 */
-  color: #999; /* 회색 텍스트 */
-  display: flex; /* 플렉스 박스 */
-  align-items: center; /* 세로축 가운데 정렬 */
-  justify-content: center; /* 가로축 가운데 정렬 */
-  font-weight: bold; /* 글씨 굵게 */
-  transition: all 0.3s ease; /* 부드러운 전환 효과 */
+  width: 30px; 
+  height: 30px; 
+  border-radius: 50%; 
+  background: #e0e0e0; 
+  color: #999; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-weight: bold; 
+  transition: all 0.3s ease; 
 }
 
-/* ▼ 활성화된 단계의 원 스타일 */
+▼ 활성화된 단계의 원 스타일
 .step.active span {
-  background: #667eea; /* 보라색 배경 */
-  color: white; /* 흰색 텍스트 */
+  background: #667eea; 
+  color: white; 
 }
 
-/* ▼ 각 단계의 텍스트 (기본) */
+▼ 각 단계의 텍스트 (기본)
 .step label {
-  font-size: 1.2rem; /* 텍스트 크기 */
-  color: #666; /* 회색 텍스트 */
+  font-size: 1.2rem; 
+  color: #666; 
 }
 
-/* ▼ 활성화된 단계의 텍스트 스타일 */
+▼ 활성화된 단계의 텍스트 스타일
 .step.active label {
-  color: #667eea; /* 보라색 텍스트 */
-  font-weight: 500; /* 중간 굵기 */
+  color: #667eea; 
+  font-weight: 500; 
 }
 
-/* ▼ 입력 필드 그룹 */
+▼ 입력 필드 그룹
 .input-group {
-  margin-bottom: 1.5rem; /* 아래 여백 */
+  margin-bottom: 1.5rem; 
 }
 
-/* ▼ 입력 필드의 라벨 스타일 */
+▼ 입력 필드의 라벨 스타일
 .input-group label {
-  display: block; /* 블록 요소로 변경 */
-  margin-bottom: 0.5rem; /* 아래 여백 */
-  font-weight: 500; /* 글씨 중간 굵기 */
-  color: #333; /* 어두운 회색 */
+  display: block; 
+  margin-bottom: 0.5rem; 
+  font-weight: 500; 
+  color: #333; 
 }
 
-/* ▼ 입력창과 셀렉트박스 공통 스타일 */
+▼ 입력창과 셀렉트박스 공통 스타일
 .input-group input,
 .input-group select {
-  width: 100%; /* 너비 100% */
-  padding: 0.75rem; /* 안쪽 여백 */
-  border: 1px solid #ddd; /* 연한 회색 테두리 */
-  border-radius: 6px; /* 둥근 테두리 */
-  font-size: 1.2rem; /* 글씨 크기 */
+  width: 100%; 
+  padding: 0.75rem; 
+  border: 1px solid #ddd; 
+  border-radius: 6px; 
+  font-size: 1.2rem; 
 }
 
-/* ▼ 선택된 기술 태그 리스트 박스 */
+▼ 선택된 기술 태그 리스트 박스
 .skills-list {
-  display: flex; /* 플렉스 박스 */
-  flex-wrap: wrap; /* 여러 줄로 자동 줄바꿈 */
-  gap: 0.5rem; /* 태그 간 간격 */
-  margin-top: 0.5rem; /* 위 여백 */
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 0.5rem; 
+  margin-top: 0.5rem; 
 }
 
-/* ▼ 개별 기술 태그 스타일 */
+▼ 개별 기술 태그 스타일
 .skill-tag {
-  background: #e3ebff; /* 연한 파란 배경 */
-  color: #667eea; /* 보라색 텍스트 */
-  padding: 0.5rem 0.75rem; /* 안쪽 여백 */
-  border-radius: 20px; /* 둥근 테두리 */
-  font-size: 1.2rem; /* 글씨 크기 */
-  display: flex; /* 플렉스 박스 */
-  align-items: center; /* 세로 정렬 */
-  gap: 0.5rem; /* 내부 요소 간 간격 */
+  background: #e3ebff; 
+  color: #667eea; 
+  padding: 0.5rem 0.75rem; 
+  border-radius: 20px; 
+  font-size: 1.2rem; 
+  display: flex; 
+  align-items: center; 
+  gap: 0.5rem; 
 }
 
-/* ▼ 기술 태그 내 삭제 버튼 스타일 */
+▼ 기술 태그 내 삭제 버튼 스타일
 .skill-tag button {
-  background: none; /* 배경 없음 */
-  border: none; /* 테두리 없음 */
-  color: #667eea; /* 보라색 아이콘 */
-  cursor: pointer; /* 커서 포인터 */
-  font-size: 1.2rem; /* 아이콘 크기 */
-  padding: 0; /* 여백 없음 */
-  width: 16px; /* 너비 16px */
-  height: 16px; /* 높이 16px */
-  border-radius: 50%; /* 동그라미 */
-  display: flex; /* 플렉스 박스 */
-  align-items: center; /* 가운데 정렬 */
-  justify-content: center; /* 가운데 정렬 */
+  background: none; 
+  border: none; 
+  color: #667eea; 
+  cursor: pointer; 
+  font-size: 1.2rem; 
+  padding: 0; 
+  width: 16px; 
+  height: 16px; 
+  border-radius: 50%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
 }
 
-/* ▼ 다음 단계, 이전 단계, 분석 버튼 공통 스타일 */
+▼ 다음 단계, 이전 단계, 분석 버튼 공통 스타일
 .btn-next-step,
 .btn-prev-step,
 .btn-analyze {
-  padding: 0.75rem 2rem; /* 위아래, 좌우 여백 */
-  border: none; /* 테두리 없음 */
-  border-radius: 6px; /* 둥근 버튼 */
-  cursor: pointer; /* 포인터 커서 */
-  font-weight: 500; /* 중간 굵기 */
-  transition: all 0.3s ease; /* 부드러운 전환 효과 */
+  padding: 0.75rem 2rem; 
+  border: none; 
+  border-radius: 6px; 
+  cursor: pointer; 
+  font-weight: 500; 
+  transition: all 0.3s ease; 
 }
 
-/* ▼ 다음 단계 및 분석 버튼 스타일 */
+▼ 다음 단계 및 분석 버튼 스타일
 .btn-next-step,
 .btn-analyze {
-  background: #667eea; /* 보라색 배경 */
-  color: white; /* 흰색 글자 */
+  background: #667eea; 
+  color: white; 
 }
 
-/* ▼ 마우스 호버 시 버튼 색상 변경 */
+▼ 마우스 호버 시 버튼 색상 변경
 .btn-next-step:hover,
 .btn-analyze:hover {
-  background: #5a6fd8; /* 진한 보라색으로 변경 */
+  background: #5a6fd8; 
 }
 
-/* ▼ 비활성화된 다음 버튼 스타일 */
+▼ 비활성화된 다음 버튼 스타일
 .btn-next-step:disabled {
-  background: #ccc; /* 회색 배경 */
-  cursor: not-allowed; /* 클릭 불가능 커서 */
+  background: #ccc; 
+  cursor: not-allowed; 
 }
 
-/* ▼ 이전 버튼 스타일 */
+▼ 이전 버튼 스타일
 .btn-prev-step {
-  background: #f8f9fa; /* 밝은 회색 배경 */
-  color: #666; /* 회색 글자 */
-  border: 1px solid #ddd; /* 테두리 */
-  margin-right: 1rem; /* 오른쪽 여백 */
+  background: #f8f9fa; 
+  color: #666; 
+  border: 1px solid #ddd; 
+  margin-right: 1rem; 
 }
 
-/* ▼ 분석 중 화면 전체 스타일 */
+▼ 분석 중 화면 전체 스타일
 .analyzing-screen {
-  text-align: center; /* 텍스트 가운데 정렬 */
-  padding: 3rem; /* 안쪽 여백 */
+  text-align: center; 
+  padding: 3rem; 
 }
 
-/* ▼ 로딩 스피너 스타일 */
+▼ 로딩 스피너 스타일
 .spinner {
-  width: 50px; /* 너비 */
-  height: 50px; /* 높이 */
-  border: 4px solid #f3f3f3; /* 바깥 원 테두리 */
-  border-top: 4px solid #667eea; /* 윗쪽 원만 보라색 */
-  border-radius: 50%; /* 원형 */
-  animation: spin 1s linear infinite; /* 회전 애니메이션 */
-  margin: 0 auto 1rem; /* 가운데 정렬 + 아래 여백 */
+  width: 50px; 
+  height: 50px; 
+  border: 4px solid #f3f3f3; 
+  border-top: 4px solid #667eea; 
+  border-radius: 50%; 
+  animation: spin 1s linear infinite; 
+  margin: 0 auto 1rem; 
 }
 
-/* ▼ 로딩 스피너 회전 애니메이션 */
+▼ 로딩 스피너 회전 애니메이션
 @keyframes spin {
-  0% { transform: rotate(0deg); } /* 0도 */
-  100% { transform: rotate(360deg); } /* 360도 회전 */
+  0% { transform: rotate(0deg); } 
+  100% { transform: rotate(360deg); } 
 }
 
-/* ▼ 추천 카드 전체 스타일 */
+▼ 추천 카드 전체 스타일
 .recommendation-card {
-  background: #f8f9ff; /* 연한 파란 배경 */
-  border: 1px solid #e3ebff; /* 테두리 색상 */
-  border-radius: 12px; /* 둥근 테두리 */
-  padding: 1.5rem; /* 안쪽 여백 */
-  margin-bottom: 1.5rem; /* 아래 여백 */
-  display: grid; /* 그리드 레이아웃 */
-  grid-template-columns: auto 1fr auto; /* 3열 구성 */
-  gap: 1.5rem; /* 열 간 간격 */
-  align-items: start; /* 상단 정렬 */
+  background: #f8f9ff; 
+  border: 1px solid #e3ebff; 
+  border-radius: 12px; 
+  padding: 1.5rem; 
+  margin-bottom: 1.5rem; 
+  display: grid; 
+  grid-template-columns: auto 1fr auto; 
+  gap: 1.5rem; 
+  align-items: start; 
 }
 
-/* ▼ 매칭 점수 영역 */
+▼ 매칭 점수 영역
 .match-score {
-  text-align: center; /* 가운데 정렬 */
+  text-align: center; 
 }
 
-/* ▼ 점수 원형 스타일 */
+▼ 점수 원형 스타일
 .score-circle {
-  width: 80px; /* 너비 */
-  height: 80px; /* 높이 */
-  border-radius: 50%; /* 원형 */
-  background: linear-gradient(135deg, #667eea, #764ba2); /* 그라데이션 */
-  color: white; /* 글자색 흰색 */
-  display: flex; /* 플렉스 박스 */
-  flex-direction: column; /* 세로 정렬 */
-  align-items: center; /* 가운데 정렬 */
-  justify-content: center; /* 가운데 정렬 */
+  width: 80px; 
+  height: 80px; 
+  border-radius: 50%; 
+  background: linear-gradient(135deg, #667eea, #764ba2); 
+  color: white; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
 }
 
-/* ▼ 점수 숫자 텍스트 */
+▼ 점수 숫자 텍스트
 .score-number {
-  font-size: 1.2rem; /* 글자 크기 */
-  font-weight: bold; /* 글자 굵게 */
+  font-size: 1.2rem; 
+  font-weight: bold; 
 }
 
-/* ▼ 점수 라벨 텍스트 */
+▼ 점수 라벨 텍스트
 .score-label {
-  font-size: 1.2rem; /* 글자 크기 */
+  font-size: 1.2rem; 
 }
+*/

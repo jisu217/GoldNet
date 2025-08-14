@@ -1,4 +1,4 @@
-// 3. 현황 분석
+/* // 3. 현황 분석
 
 import React, { useState } from 'react';
 
@@ -216,4 +216,4 @@ const Statistics = ({ jobs }) => {
   );
 };
 
-export default Statistics;
+export default Statistics; */
