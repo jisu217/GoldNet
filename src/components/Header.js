@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 
 const Header = ({ onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // ✨ 1. 로그아웃 확인 창의 표시 여부를 관리할 state 추가
+  const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
   const menuRef = useRef(null);
 
   useEffect(() => {
@@ -21,11 +23,23 @@ const Header = ({ onNavigate }) => {
   };
   
   const handleMenuClick = (action) => {
-    // action에 해당하는 페이지로 이동하도록 부모 컴포넌트(App.js)에 알림
     if (onNavigate) {
       onNavigate(action);
     }
-    setIsMenuOpen(false); // 메뉴 닫기
+    setIsMenuOpen(false); 
+  };
+
+  // ✨ 2. 로그아웃 버튼 클릭 시 확인 창을 띄우는 함수
+  const handleLogoutClick = () => {
+    setIsMenuOpen(false); // 먼저 드롭다운 메뉴를 닫고
+    setShowLogoutConfirm(true); // 확인 창을 띄웁니다.
+  };
+
+  // ✨ 3. 확인 창에서 '예'를 눌렀을 때 실행될 함수
+  const handleConfirmLogout = () => {
+    console.log("로그아웃이 실행되었습니다.");
+    // 여기에 실제 로그아웃 로직을 구현합니다 (예: 토큰 삭제, 로그인 페이지로 리디렉션)
+    setShowLogoutConfirm(false); // 확인 창 닫기
   };
 
   return (
@@ -79,7 +93,8 @@ const Header = ({ onNavigate }) => {
                 <span className="menu-icon">⚙️</span>
                 <span>설정</span>
               </div>
-              <div className="menu-item logout" onClick={() => console.log('로그아웃 클릭됨')}>
+              {/* ✨ 4. 로그아웃 메뉴의 onClick을 handleLogoutClick으로 변경 */}
+              <div className="menu-item logout" onClick={handleLogoutClick}>
                 <span className="menu-icon">🚪</span>
                 <span>로그아웃</span>
               </div>
@@ -87,6 +102,20 @@ const Header = ({ onNavigate }) => {
           )}
         </div>
       </div>
+
+      {/* ✨ 5. 로그아웃 확인 창(Modal) JSX 추가 */}
+      {showLogoutConfirm && (
+        <div className="confirm-overlay">
+          <div className="confirm-modal">
+            <h3>로그아웃</h3>
+            <p>정말로 로그아웃 하시겠습니까?</p>
+            <div className="modal-buttons">
+              <button className="btn-no" onClick={() => setShowLogoutConfirm(false)}>아니요</button>
+              <button className="btn-yes" onClick={handleConfirmLogout}>예</button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <style jsx>{`
         /* 기존 스타일은 그대로 유지 */
@@ -181,6 +210,7 @@ const Header = ({ onNavigate }) => {
 
         .menu-item.logout {
           color: #e74c3c;
+          font-size: 1.5rem;
         }
 
         .menu-item.logout:hover {
@@ -197,6 +227,73 @@ const Header = ({ onNavigate }) => {
           height: 1px;
           background-color: #e0e0e0;
           margin: 4px 0;
+        }
+        
+        /* 로그아웃 확인 창 스타일 */
+        .confirm-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 2000;
+        }
+
+        .confirm-modal {
+          background-color: white;
+          padding: 24px;
+          border-radius: 8px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+          text-align: center;
+          width: 320px;
+        }
+        
+        .confirm-modal h3 {
+          margin-top: 0;
+          font-size: 1.25rem;
+        }
+        
+        .confirm-modal p {
+          margin: 8px 0 24px;
+          color: #333;
+          /* --- ✨ 변경된 부분 --- */
+          font-size: 1.3rem; 
+        }
+
+        .modal-buttons {
+          display: flex;
+          justify-content: center;
+          gap: 12px;
+        }
+
+        .modal-buttons button {
+          padding: 10px 24px;
+          border: none;
+          border-radius: 5px;
+          font-weight: bold;
+          cursor: pointer;
+          transition: background-color 0.2s;
+          font-size: 1.3rem;
+        }
+
+        .modal-buttons .btn-no {
+          background-color: #e9ecef;
+          color: #495057;
+        }
+        .modal-buttons .btn-no:hover {
+          background-color: #ced4da;
+        }
+
+        .modal-buttons .btn-yes {
+          background-color: #e74c3c;
+          color: white;
+        }
+        .modal-buttons .btn-yes:hover {
+          background-color: #c0392b;
         }
       `}</style>
     </header>

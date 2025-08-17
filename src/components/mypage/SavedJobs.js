@@ -30,7 +30,7 @@ const SavedJobs = () => {
   return (
     <div className="saved-jobs-container">
       <h2>저장한 공고 ({sampleSavedJobs.length}개)</h2>
-      <p className="page-description">관심있게 본 공고들을 여기에서 다시 확인할 수 있습니다.</p>
+      <p className="page-description"></p>
 
       {sampleSavedJobs.length > 0 ? (
         <div className="job-grid">

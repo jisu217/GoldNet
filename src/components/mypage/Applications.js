@@ -20,7 +20,7 @@ const Applications = () => {
   return (
     <div className="applications-container">
       <h2>지원 현황</h2>
-      <p className="page-description">지원한 공고의 진행 상태를 한눈에 파악할 수 있습니다.</p>
+      <p className="page-description"></p>
 
       <div className="table-wrapper">
         <table className="application-table">

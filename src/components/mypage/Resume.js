@@ -69,7 +69,7 @@ const Resume = () => {
             <textarea name="experience" value={profileData.experience} onChange={handleChange} />
           </div>
           <div className="form-group">
-            <label>희망근무조건</label>
+            <label>희망 근무 조건</label>
             <input type="text" name="preferredConditions" value={profileData.preferredConditions} onChange={handleChange} />
           </div>
         </section>
@@ -91,11 +91,11 @@ const Resume = () => {
               <input type="text" name="strengths" value={profileData.strengths} onChange={handleChange} placeholder="예: 성실함, 책임감" />
             </div>
             <div className="form-group">
-              <label>MBTI</label>
+              <label>MBTI (선택)</label>
               <input type="text" name="mbti" value={profileData.mbti} onChange={handleChange} />
             </div>
             <div className="form-group">
-              <label>자격/능력</label>
+              <label>자격 / 능력 (선택)</label>
               <input type="text" name="certifications" value={profileData.certifications} onChange={handleChange} placeholder="예: 지게차운전기능사" />
             </div>
             <div className="form-group">

@@ -2,6 +2,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  font-size: 1.3rem; /* 글자 크기 */
 }
 
 .saved-jobs-container .page-description {
