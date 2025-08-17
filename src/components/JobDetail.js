@@ -30,29 +30,21 @@ const JobDetail = ({ job, onClose }) => {
             <h3>근무 조건</h3>
             <div className="condition-grid">
               {/* 각 조건 항목 */}
+                <div className="condition-item">
+                <span className="label">업직종:</span>
+                <span className="value">{job.category}</span>
+              </div>
+                <div className="condition-item">
+                <span className="label">브랜드:</span>
+                <span className="value">{job.brand}</span>
+              </div>
               <div className="condition-item">
                 <span className="label">급여:</span>
                 <span className="value">{job.salary}</span>
               </div>
               <div className="condition-item">
-                <span className="label">브랜드:</span>
-                <span className="value">{job.brand}</span>
-              </div>
-              <div className="condition-item">
-                <span className="label">업직종:</span>
-                <span className="value">{job.category}</span>
-              </div>
-              <div className="condition-item">
-                <span className="label">고용형태:</span>
-                <span className="value">{job.employmentType}</span>
-              </div>
-              <div className="condition-item">
                 <span className="label">근무요일:</span>
                 <span className="value">{job.workDays}</span>
-              </div>
-              <div className="condition-item">
-                <span className="label">근무기간:</span>
-                <span className="value">{job.workPeriod}</span>
               </div>
               <div className="condition-item">
                 <span className="label">근무시간:</span>
@@ -66,16 +58,8 @@ const JobDetail = ({ job, onClose }) => {
             <h3>모집 조건</h3>
             <div className="condition-grid">
               <div className="condition-item">
-                <span className="label">모집인원:</span>
-                <span className="value">{job.recruitCount}</span>
-              </div>
-              <div className="condition-item">
                 <span className="label">학력:</span>
                 <span className="value">{job.education}</span>
-              </div>
-              <div className="condition-item">
-                <span className="label">모집마감:</span>
-                <span className="value">{job.deadline}</span>
               </div>
             </div>
           </section>
@@ -96,18 +80,6 @@ const JobDetail = ({ job, onClose }) => {
             <h3>상세 요강</h3>
             <div className="job-description">
               <p>{job.description}</p> {/* 상세 설명 */}
-
-              {/* 자격요건 있을 경우 렌더링 */}
-              {job.requirements && (
-                <div className="requirements">
-                  <h4>자격 요건</h4>
-                  <ul>
-                    {job.requirements.map((req, index) => (
-                      <li key={index}>{req}</li> // 배열 순회하며 항목 렌더링
-                    ))}
-                  </ul>
-                </div>
-              )}
 
               {/* 복리혜택 있을 경우 렌더링 */}
               {job.benefits && (

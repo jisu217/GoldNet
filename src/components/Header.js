@@ -1,18 +1,15 @@
-// 웹사이트의 상단 메뉴 바 (네비게이션 바)
 import React, { useState, useRef, useEffect } from 'react';
 
-const Header = () => {
+const Header = ({ onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
 
-  // 메뉴 외부 클릭 시 닫기
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
         setIsMenuOpen(false);
       }
     };
-
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
@@ -22,17 +19,19 @@ const Header = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
+  
   const handleMenuClick = (action) => {
-    console.log(`${action} 클릭됨`);
-    setIsMenuOpen(false);
-    // 여기에 각 메뉴 항목에 대한 실제 기능 구현
+    // action에 해당하는 페이지로 이동하도록 부모 컴포넌트(App.js)에 알림
+    if (onNavigate) {
+      onNavigate(action);
+    }
+    setIsMenuOpen(false); // 메뉴 닫기
   };
 
   return (
     <header className="header">
       <div className="header-container">
-        <div className="logo">
+        <div className="logo" onClick={() => onNavigate('jobs')} style={{ cursor: 'pointer' }}>
           <h1>골드넷</h1>
           <span className="subtitle">노인 일자리 통합 플랫폼</span>
         </div>
@@ -52,7 +51,6 @@ const Header = () => {
           </div>
         </div>
 
-        {/* 사용자 메뉴 */}
         <div className="user-menu" ref={menuRef}>
           <button className="profile-btn" onClick={toggleMenu}>
             <div className="profile-icon">
@@ -64,28 +62,28 @@ const Header = () => {
 
           {isMenuOpen && (
             <div className="dropdown-menu">
-              <div className="menu-item" onClick={() => handleMenuClick('마이페이지')}>
+              <div className="menu-item" onClick={() => handleMenuClick('mypage')}>
                 <span className="menu-icon">👤</span>
                 <span>마이페이지</span>
               </div>
-              <div className="menu-item" onClick={() => handleMenuClick('자기소개서')}>
+              <div className="menu-item" onClick={() => handleMenuClick('resume')}>
                 <span className="menu-icon">📝</span>
                 <span>자기소개서</span>
               </div>
-              <div className="menu-item" onClick={() => handleMenuClick('저장한 공고')}>
+              <div className="menu-item" onClick={() => handleMenuClick('saved-jobs')}>
                 <span className="menu-icon">⭐</span>
                 <span>저장한 공고</span>
               </div>
-              <div className="menu-item" onClick={() => handleMenuClick('지원 현황')}>
+              <div className="menu-item" onClick={() => handleMenuClick('applications')}>
                 <span className="menu-icon">📋</span>
                 <span>지원 현황</span>
               </div>
               <div className="menu-divider"></div>
-              <div className="menu-item" onClick={() => handleMenuClick('설정')}>
+              <div className="menu-item" onClick={() => handleMenuClick('settings')}>
                 <span className="menu-icon">⚙️</span>
                 <span>설정</span>
               </div>
-              <div className="menu-item logout" onClick={() => handleMenuClick('로그아웃')}>
+              <div className="menu-item logout" onClick={() => console.log('로그아웃 클릭됨')}>
                 <span className="menu-icon">🚪</span>
                 <span>로그아웃</span>
               </div>
@@ -95,6 +93,7 @@ const Header = () => {
       </div>
 
       <style jsx>{`
+        /* 기존 스타일은 그대로 유지 */
         .header-container {
           display: flex;
           justify-content: space-between;
