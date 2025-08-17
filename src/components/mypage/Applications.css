@@ -1,0 +1,64 @@
+.applications-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.applications-container .page-description {
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.table-wrapper {
+  overflow-x: auto; /* 화면이 좁을 때 스크롤 가능하게 */
+}
+
+.application-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.application-table th, 
+.application-table td {
+  border-bottom: 1px solid #ddd;
+  padding: 16px 12px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.application-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #333;
+}
+
+.application-table tbody tr:hover {
+  background-color: #f1f3f5;
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.status-submitted { background-color: #e9ecef; color: #495057; }
+.status-pending { background-color: #fff3cd; color: #856404; }
+.status-pass { background-color: #d4edda; color: #155724; }
+.status-fail { background-color: #f8d7da; color: #721c24; }
+
+.cancel-btn {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #555;
+}

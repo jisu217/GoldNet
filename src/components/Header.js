@@ -62,10 +62,6 @@ const Header = ({ onNavigate }) => {
 
           {isMenuOpen && (
             <div className="dropdown-menu">
-              <div className="menu-item" onClick={() => handleMenuClick('mypage')}>
-                <span className="menu-icon">👤</span>
-                <span>마이페이지</span>
-              </div>
               <div className="menu-item" onClick={() => handleMenuClick('resume')}>
                 <span className="menu-icon">📝</span>
                 <span>자기소개서</span>

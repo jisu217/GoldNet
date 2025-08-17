@@ -1,0 +1,23 @@
+.saved-jobs-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.saved-jobs-container .page-description {
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+/* 
+  .job-grid 스타일은 App.css에 이미 정의되어 있어 재사용됩니다.
+  따로 추가할 스타일이 없다면 이 파일은 비워두어도 괜찮습니다.
+*/
+
+.empty-message {
+  text-align: center;
+  padding: 4rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  color: #777;
+}
