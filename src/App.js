@@ -245,7 +245,7 @@ function App() {
         return <Statistics jobs={jobs} />;
       
       case 'resume':
-        return <Resume />
+        return <Resume />;
       
       case 'saved-jobs':
         return <SavedJobs />;

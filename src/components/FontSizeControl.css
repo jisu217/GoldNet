@@ -1,0 +1,30 @@
+.font-size-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.font-size-control span {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.font-size-control button {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 2.5rem;
+  height: 2rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.font-size-control button:hover {
+  background-color: #e0e0e0;
+}
+
+.font-size-control button:active {
+  background-color: #d0d0d0;
+}
