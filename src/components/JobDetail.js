@@ -1,15 +1,12 @@
 // 채용 공고 상세 정보 모달 UI 컴포넌트
 
 import React from 'react';
-import MapComponent from './MapComponent'; // 주소 기반 지도 컴포넌트
-import '../styles/jobDetail.css'; // CSS 스타일링 파일 불러오기
-
-// JobDetail 컴포넌트 정의, props로 job 데이터와 닫기 이벤트 전달
+import MapComponent from './MapComponent';
+import '../styles/jobDetail.css';
 const JobDetail = ({ job, onClose }) => {
-  if (!job) return null; // job이 없으면 아무것도 렌더링하지 않음 (모달 안 띄움)
+  if (!job) return null;
 
   return (
-    // 모달 오버레이: 바깥 회색 배경 클릭 시 닫힘
     <div className="job-detail-overlay" onClick={onClose}>
       {/* 모달 내부 클릭 시 닫히지 않도록 이벤트 전파 방지 */}
       <div className="job-detail-container" onClick={(e) => e.stopPropagation()}>
@@ -107,4 +104,4 @@ const JobDetail = ({ job, onClose }) => {
   );
 };
 
-export default JobDetail; // 컴포넌트 외부로 내보내기
+export default JobDetail;

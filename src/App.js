@@ -7,17 +7,11 @@ import JobCard from './components/JobCard';
 import Statistics from './components/Statistics';
 import AIRecommendation from './components/AIRecommendation';
 import JobDetail from './components/JobDetail';
-
-// --- ✨ 1. 이 부분을 수정합니다 ---
-// 기존에 있던 const Resume = ... , const SavedJobs = ... 코드를 모두 삭제하고
-// 아래 import 문으로 교체합니다.
 import Resume from './components/mypage/Resume';
 import SavedJobs from './components/mypage/SavedJobs';
 import Applications from './components/mypage/Applications';
-// --- 여기까지 수정 ---
 
 function App() {
-  // 'jobs'가 기본 탭이 되도록 설정합니다.
   const [currentTab, setCurrentTab] = useState('jobs');
   
   const [selectedJob, setSelectedJob] = useState(null);
@@ -46,7 +40,6 @@ function App() {
         "교통비 지원"
       ]
     },
-    // ... (나머지 jobs 데이터는 그대로 유지)
     {
       id: 2,
       company: "오아시스",
@@ -218,8 +211,6 @@ function App() {
     setSelectedJob(null);
   };
 
-  // --- ✨ 2. 이 부분은 수정할 필요 없습니다 ---
-  // 이제 외부에서 불러온 컴포넌트들을 정확히 렌더링할 것입니다.
   const renderContent = () => {
     switch(currentTab) {
       case 'jobs':
@@ -254,7 +245,7 @@ function App() {
         return <Statistics jobs={jobs} />;
       
       case 'resume':
-        return <Resume />; // 이 <Resume />는 이제 mypage/Resume.js를 가리킵니다.
+        return <Resume />
       
       case 'saved-jobs':
         return <SavedJobs />;

@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import './Resume.css';
 
 const Resume = () => {
-  // 사용자의 프로필 데이터를 관리하는 state
-  // 실제로는 DB에서 불러온 데이터로 초기화해야 합니다.
   const [profileData, setProfileData] = useState({
     name: '김골드',
     age: '62세',
@@ -18,12 +16,11 @@ const Resume = () => {
     strengths: '꼼꼼함, 성실함, 강한 체력',
     mbti: 'ISTJ',
     certifications: '지게차운전기능사, 1종보통운전면허',
-    portfolio: 'https://my-portfolio.com', // 포트폴리오 링크
+    portfolio: 'https://my-portfolio.com',
     preferential: '국가유공자 자녀',
-    receiveOffers: true, // 알바 제의 받기 체크 여부
+    receiveOffers: true,
   });
 
-  // 입력 필드 값이 변경될 때 state를 업데이트하는 함수
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setProfileData(prevData => ({
@@ -32,11 +29,9 @@ const Resume = () => {
     }));
   };
   
-  // 저장 버튼 클릭 시 호출될 함수
   const handleSave = () => {
     console.log("저장될 데이터:", profileData);
     alert("이력서가 저장되었습니다!");
-    // 여기에 실제 서버로 데이터를 전송하는 API 호출 코드가 들어갑니다.
   };
 
   return (

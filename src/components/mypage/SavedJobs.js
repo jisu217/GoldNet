@@ -1,8 +1,7 @@
 import React from 'react';
-import JobCard from '../JobCard'; // ✨ 상위 폴더(components)에 있는 JobCard를 불러옵니다.
+import JobCard from '../JobCard';
 import './SavedJobs.css';
 
-// 저장한 공고 예시 데이터
 const sampleSavedJobs = [
     {
       id: 2,

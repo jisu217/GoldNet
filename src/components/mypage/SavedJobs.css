@@ -2,7 +2,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  font-size: 1.3rem; /* 글자 크기 */
+  font-size: 1.3rem;
 }
 
 .saved-jobs-container .page-description {
@@ -11,8 +11,6 @@
 }
 
 /* 
-  .job-grid 스타일은 App.css에 이미 정의되어 있어 재사용됩니다.
-  따로 추가할 스타일이 없다면 이 파일은 비워두어도 괜찮습니다.
 */
 
 .empty-message {

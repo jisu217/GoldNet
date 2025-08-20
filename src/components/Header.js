@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 
 const Header = ({ onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // ✨ 1. 로그아웃 확인 창의 표시 여부를 관리할 state 추가
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
   const menuRef = useRef(null);
 
@@ -29,17 +28,15 @@ const Header = ({ onNavigate }) => {
     setIsMenuOpen(false); 
   };
 
-  // ✨ 2. 로그아웃 버튼 클릭 시 확인 창을 띄우는 함수
   const handleLogoutClick = () => {
-    setIsMenuOpen(false); // 먼저 드롭다운 메뉴를 닫고
-    setShowLogoutConfirm(true); // 확인 창을 띄웁니다.
+    setIsMenuOpen(false);
+    setShowLogoutConfirm(true);
   };
 
-  // ✨ 3. 확인 창에서 '예'를 눌렀을 때 실행될 함수
+  // 3. 확인 창에서 '예'를 눌렀을 때 실행될 함수
   const handleConfirmLogout = () => {
     console.log("로그아웃이 실행되었습니다.");
-    // 여기에 실제 로그아웃 로직을 구현합니다 (예: 토큰 삭제, 로그인 페이지로 리디렉션)
-    setShowLogoutConfirm(false); // 확인 창 닫기
+    setShowLogoutConfirm(false);
   };
 
   return (
@@ -93,7 +90,7 @@ const Header = ({ onNavigate }) => {
                 <span className="menu-icon">⚙️</span>
                 <span>설정</span>
               </div>
-              {/* ✨ 4. 로그아웃 메뉴의 onClick을 handleLogoutClick으로 변경 */}
+              {/* 4. 로그아웃 메뉴의 onClick을 handleLogoutClick으로 변경 */}
               <div className="menu-item logout" onClick={handleLogoutClick}>
                 <span className="menu-icon">🚪</span>
                 <span>로그아웃</span>
@@ -103,7 +100,7 @@ const Header = ({ onNavigate }) => {
         </div>
       </div>
 
-      {/* ✨ 5. 로그아웃 확인 창(Modal) JSX 추가 */}
+      {/* 5. 로그아웃 확인 창(Modal) JSX 추가 */}
       {showLogoutConfirm && (
         <div className="confirm-overlay">
           <div className="confirm-modal">

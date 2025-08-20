@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 
 // 노인 사용자층을 고려하여 UI를 단순화한 일자리 검색 필터 컴포넌트
+
 const SearchFilter = ({ jobs, setJobs }) => {
-  // 원본 데이터는 필터 초기화를 위해 항상 보관합니다.
   const [originalJobs] = useState(jobs);
   
-  // 사용할 필터(키워드, 지역, 업직종)만 state로 관리합니다.
   const [filters, setFilters] = useState({
     keyword: '',
     location: '',
     category: '',
   });
 
-  // 필터 값이 변경될 때마다 state를 업데이트하는 함수입니다.
   const handleFilterChange = (key, value) => {
     setFilters(prev => ({
       ...prev,
@@ -20,7 +18,6 @@ const SearchFilter = ({ jobs, setJobs }) => {
     }));
   };
 
-  // '필터 적용' 버튼 클릭 시 실행될 함수입니다.
   const applyFilters = () => {
     console.log('적용할 필터:', filters);
     
@@ -46,19 +43,15 @@ const SearchFilter = ({ jobs, setJobs }) => {
       filteredJobs = filteredJobs.filter(job => job.category === filters.category);
     }
 
-    // 최종 필터링된 결과를 부모 컴포넌트에 전달하여 화면에 반영합니다.
     setJobs(filteredJobs);
   };
 
-  // '필터 초기화' 버튼 클릭 시 실행될 함수입니다.
   const clearFilters = () => {
-    // 필터 state를 초기화합니다.
     setFilters({
       keyword: '',
       location: '',
       category: '',
     });
-    // 목록을 원본 데이터로 되돌립니다.
     setJobs(originalJobs);
   };
 
