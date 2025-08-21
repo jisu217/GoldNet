@@ -1,18 +1,11 @@
 /* Navigation Styles */
 
-/* '통합 일자리 검색' 등이 있는 내비게이션 바 전체 */
 .main-navigation {
-  /* 내비게이션 바 배경색 (흰색) */
   background: white;
-  /* 내비게이션 바 하단 경계선 (1px 회색 실선) */
   border-bottom: 1px solid #e0e0e0;
-  /* 내비게이션 바 내부 여백 제거 */
   padding: 0;
-  /* 내부 탭들을 가로로 정렬하기 위한 flex 설정 */
   display: flex;
   width: calc(100% - 40cm);
-  /* 좌우 마진 auto로 중앙 정렬 */
   margin: 0 auto;
-  /* 내비게이션 바 하단 그림자 효과 */
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }

@@ -11,7 +11,6 @@ const MapComponent = ({ address }) => {
     if (window.kakao && window.kakao.maps) {
       initMap();
     } else {
-      // 카카오맵 API 스크립트 동적 로드
       const script = document.createElement('script');
       script.async = true;
       script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_KAKAO_API_KEY&libraries=services&autoload=false`;
@@ -38,7 +37,6 @@ const MapComponent = ({ address }) => {
 
     const map = new kakao.maps.Map(mapRef.current, options);
     
-    // 주소 검색
     if (address) {
       const geocoder = new kakao.maps.services.Geocoder();
       
@@ -46,7 +44,6 @@ const MapComponent = ({ address }) => {
         if (status === kakao.maps.services.Status.OK) {
           const coords = new kakao.maps.LatLng(result[0].y, result[0].x);
           
-          // 마커 생성
           const marker = new kakao.maps.Marker({
             map: map,
             position: coords
@@ -59,7 +56,6 @@ const MapComponent = ({ address }) => {
           
           infowindow.open(map, marker);
           
-          // 지도 중심을 마커 위치로 이동
           map.setCenter(coords);
         }
       });

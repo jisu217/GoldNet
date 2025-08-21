@@ -1,72 +1,38 @@
 /* Header Styles */
 
-/* 헤더 전체 영역 */
 .header {
-  background: white; /* 배경색 - 흰색 그라데이션 (단색처럼 보임) */
-  color: #000000; /* 텍스트 기본색 (하지만 실제 텍스트 컬러는 요소별로 별도 설정됨) */
-  padding: 2.5rem 0; /* 위아래 여백 */
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08); /* 아래 방향 카드 그림자 효과 */
-  /* 카드 모서리 둥글기 (8px로 줄여서 더 사각형 느낌) */
+  background: white;
+  color: #000000;
+  padding: 2.5rem 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
   border-radius: 8px;
 }
 
-/* 헤더 안 컨텐츠를 감싸는 컨테이너 */
 .header-container {
-  max-width: 1200px; /* 최대 너비 지정 */
-  margin: 0 auto; /* 가운데 정렬 */
-  padding: 0 1rem; /* 좌우 여백 */
-  display: flex; /* 가로 정렬 */
-  justify-content: space-between; /* 좌우 끝으로 분산 정렬 */
-  align-items: center; /* 수직 가운데 정렬 */
-  position: relative; /* 드롭다운 메뉴를 위한 상대 위치 */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
 }
 
-/* 로고 영역 */
 .logo h1 {
-  font-size: 2.5rem; /* 제목 크기 크게 */
-  margin-bottom: 0.25rem; /* 자막과의 간격 */
+  font-size: 2.5rem;
+  margin-bottom: 0.25rem;
 }
 
-/* 로고 아래 자막 */
 .logo .subtitle {
-  font-size: 2rem; /* 작은 글씨 */
-  opacity: 0.9; /* 약간 흐리게 */
-}
-
-/* 통계 정보 묶음 (오른쪽) */
-.header-stats {
-  display: flex; /* 가로 정렬 */
-  gap: 2rem; /* 항목 간 간격 */
-}
-
-/* 개별 통계 항목 */
-.stat-item {
-  text-align: center; /* 가운데 정렬 */
-}
-
-/* 통계 숫자 스타일 */
-.stat-number {
-  display: block;
   font-size: 2rem;
-  font-weight: bold;
-  color: hsl(0, 0%, 0%);
+  opacity: 0.9;
 }
 
-/* 통계 라벨 텍스트 */
-.stat-label {
-  font-size: 1.5rem;
-  opacity: 0.9; /* 흐리게 */
-}
-
-/* User Menu Styles */
-
-/* 사용자 메뉴 전체 영역 */
 .user-menu {
   position: relative;
   margin-left: 2rem;
 }
 
-/* 프로필 버튼 */
 .profile-btn {
   display: flex;
   align-items: center;
@@ -77,14 +43,13 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  font-size: 5rem;
+  font-size: 1rem;
 }
 
 .profile-btn:hover {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-/* 프로필 아이콘 */
 .profile-icon {
   width: 5.2rem;
   height: 5.2rem;
@@ -93,20 +58,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1rem;
   border: 2px solid #e0e0e0;
 }
 
-/* 프로필 이름 */
 .profile-name {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 500;
   color: #333;
 }
 
-/* 드롭다운 화살표 */
 .arrow {
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: #666;
   transition: transform 0.2s ease;
 }
@@ -115,7 +78,6 @@
   transform: rotate(180deg);
 }
 
-/* 드롭다운 메뉴 */
 .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -128,10 +90,9 @@
   z-index: 1000;
   margin-top: 0.4rem;
   overflow: hidden;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
-/* 메뉴 항목 */
 .menu-item {
   display: flex;
   align-items: center;
@@ -147,7 +108,6 @@
   background-color: #f5f5f5;
 }
 
-/* 로그아웃 항목 특별 스타일 */
 .menu-item.logout {
   color: #e74c3c;
 }
@@ -156,22 +116,19 @@
   background-color: #fef2f2;
 }
 
-/* 메뉴 아이콘 */
 .menu-icon {
-  font-size: 1.6rem;
+  font-size: 1rem;
   width: 2rem;
   text-align: center;
   flex-shrink: 0;
 }
 
-/* 메뉴 구분선 */
 .menu-divider {
   height: 1px;
   background-color: #e0e0e0;
   margin: 0.4rem 0;
 }
 
-/* 반응형 디자인 - 작은 화면에서 */
 @media (max-width: 768px) {
   
   .user-menu {
@@ -180,6 +137,6 @@
   
   .dropdown-menu {
     min-width: 16rem;
-    right: -1rem; /* 화면 가장자리 고려 */
+    right: -1rem;
   }
 }

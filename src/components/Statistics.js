@@ -1,4 +1,4 @@
-/* // 3. 현황 분석
+/* 현황 분석
 
 import React, { useState } from 'react';
 

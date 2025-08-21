@@ -1,3 +1,5 @@
+// 마이페이지 - 지원 현황 
+
 import React from 'react';
 import './Applications.css';
 

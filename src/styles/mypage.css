@@ -22,7 +22,6 @@
   color: #666;
 }
 
-/* 탭 메뉴 */
 .tab-menu {
   display: flex;
   gap: 0.5rem;
@@ -53,7 +52,6 @@
   font-weight: 700;
 }
 
-/* 탭 컨텐츠 */
 .tab-content-wrapper {
   min-height: 400px;
 }
@@ -86,7 +84,6 @@
   margin: 0;
 }
 
-/* 프로필 탭 */
 .profile-form {
   max-width: 600px;
 }
@@ -135,7 +132,6 @@
   background: #3367d6;
 }
 
-/* 자기소개서 탭 */
 .add-btn {
   background: #34a853;
   color: white;
@@ -316,7 +312,6 @@
   background: #555;
 }
 
-/* 지원현황 탭 */
 .applications-list {
   display: flex;
   flex-direction: column;
@@ -386,7 +381,6 @@
   color: #2d8a47;
 }
 
-/* 반응형 */
 @media (max-width: 768px) {
   .mypage-container {
     margin: 1rem auto;
@@ -429,6 +423,6 @@
 
   .form-group input,
   .form-group select {
-    font-size: 1rem; /* iOS 확대 방지 */
+    font-size: 1rem; 
   }
 }

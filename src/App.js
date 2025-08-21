@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+// App.js
+
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 import Header from './components/Header';
@@ -13,8 +15,24 @@ import Applications from './components/mypage/Applications';
 
 function App() {
   const [currentTab, setCurrentTab] = useState('jobs');
-  
   const [selectedJob, setSelectedJob] = useState(null);
+  const [fontSize, setFontSize] = useState(1); 
+
+  useEffect(() => {
+    document.documentElement.style.fontSize = `${fontSize * 16}px`;
+  }, [fontSize]);
+
+  const handleIncreaseFontSize = () => {
+    setFontSize(prevSize => Math.min(prevSize + 0.1, 1.4));
+  };
+
+  const handleDecreaseFontSize = () => {
+    setFontSize(prevSize => Math.max(prevSize - 0.1, 0.8));
+  };
+
+  const handleResetFontSize = () => {
+    setFontSize(1);
+  };
 
   const [jobs, setJobs] = useState([
     {
@@ -210,7 +228,7 @@ function App() {
   const handleCloseJobDetail = () => {
     setSelectedJob(null);
   };
-
+  
   const renderContent = () => {
     switch(currentTab) {
       case 'jobs':
@@ -245,7 +263,7 @@ function App() {
         return <Statistics jobs={jobs} />;
       
       case 'resume':
-        return <Resume />;
+        return <Resume />
       
       case 'saved-jobs':
         return <SavedJobs />;
@@ -284,7 +302,12 @@ function App() {
 
   return (
     <div className="App">
-      <Header onNavigate={setCurrentTab} />
+      <Header 
+        onNavigate={setCurrentTab} 
+        increaseFontSize={handleIncreaseFontSize}
+        decreaseFontSize={handleDecreaseFontSize}
+        resetFontSize={handleResetFontSize}
+      />
 
       <main className="main-content">
         {renderContent()}

@@ -1,15 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-const Header = ({ onNavigate }) => {
+const Header = ({ onNavigate, increaseFontSize, decreaseFontSize, resetFontSize }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // ✨ 1. 로그아웃 확인 창의 표시 여부를 관리할 state 추가
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
+  const [isFontMenuOpen, setIsFontMenuOpen] = useState(false);
   const menuRef = useRef(null);
+  const fontMenuRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
         setIsMenuOpen(false);
+      }
+      if (fontMenuRef.current && !fontMenuRef.current.contains(event.target)) {
+        setIsFontMenuOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -20,6 +24,12 @@ const Header = ({ onNavigate }) => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    setIsFontMenuOpen(false);
+  };
+
+  const toggleFontMenu = () => {
+    setIsFontMenuOpen(!isFontMenuOpen);
+    setIsMenuOpen(false);
   };
   
   const handleMenuClick = (action) => {
@@ -29,17 +39,29 @@ const Header = ({ onNavigate }) => {
     setIsMenuOpen(false); 
   };
 
-  // ✨ 2. 로그아웃 버튼 클릭 시 확인 창을 띄우는 함수
   const handleLogoutClick = () => {
-    setIsMenuOpen(false); // 먼저 드롭다운 메뉴를 닫고
-    setShowLogoutConfirm(true); // 확인 창을 띄웁니다.
+    setIsMenuOpen(false);
+    setShowLogoutConfirm(true);
   };
 
-  // ✨ 3. 확인 창에서 '예'를 눌렀을 때 실행될 함수
   const handleConfirmLogout = () => {
     console.log("로그아웃이 실행되었습니다.");
-    // 여기에 실제 로그아웃 로직을 구현합니다 (예: 토큰 삭제, 로그인 페이지로 리디렉션)
-    setShowLogoutConfirm(false); // 확인 창 닫기
+    setShowLogoutConfirm(false);
+  };
+
+  const handleFontSizeChange = (action) => {
+    switch(action) {
+      case 'increase':
+        increaseFontSize && increaseFontSize();
+        break;
+      case 'decrease':
+        decreaseFontSize && decreaseFontSize();
+        break;
+      case 'reset':
+        resetFontSize && resetFontSize();
+        break;
+    }
+    setIsFontMenuOpen(false);
   };
 
   return (
@@ -49,61 +71,75 @@ const Header = ({ onNavigate }) => {
           <h1>골드넷</h1>
           <span className="subtitle">노인 일자리 통합 플랫폼</span>
         </div>
-        
-        <div className="header-stats">
-          <div className="stat-item">
-            <span className="stat-number">1,247</span>
-            <span className="stat-label">등록된 일자리</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-number">89%</span>
-            <span className="stat-label">매칭 성공률</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-number">15,832</span>
-            <span className="stat-label">회원 수</span>
-          </div>
-        </div>
 
-        <div className="user-menu" ref={menuRef}>
-          <button className="profile-btn" onClick={toggleMenu}>
-            <div className="profile-icon">
-              <span>👤</span>
-            </div>
-            <span className="profile-name">마이페이지</span>
-            <span className={`arrow ${isMenuOpen ? 'up' : 'down'}`}>▼</span>
-          </button>
+        <div className="header-controls">
+          {/* 글씨 크기 조정 메뉴 */}
+          <div className="font-size-menu" ref={fontMenuRef}>
+            <button className="font-size-btn" onClick={toggleFontMenu}>
+              <span className="font-icon">🔤</span>
+              <span className="font-label">글씨크기</span>
+              <span className={`arrow ${isFontMenuOpen ? 'up' : 'down'}`}>▼</span>
+            </button>
 
-          {isMenuOpen && (
-            <div className="dropdown-menu">
-              <div className="menu-item" onClick={() => handleMenuClick('resume')}>
-                <span className="menu-icon">📝</span>
-                <span>자기소개서</span>
+            {isFontMenuOpen && (
+              <div className="font-dropdown-menu">
+                <div className="font-menu-item" onClick={() => handleFontSizeChange('increase')}>
+                  <span className="font-menu-icon">➕</span>
+                  <span>크게</span>
+                </div>
+                <div className="font-menu-item" onClick={() => handleFontSizeChange('decrease')}>
+                  <span className="font-menu-icon">➖</span>
+                  <span>작게</span>
+                </div>
+                <div className="font-menu-divider"></div>
+                <div className="font-menu-item" onClick={() => handleFontSizeChange('reset')}>
+                  <span className="font-menu-icon">🔄</span>
+                  <span>기본크기</span>
+                </div>
               </div>
-              <div className="menu-item" onClick={() => handleMenuClick('saved-jobs')}>
-                <span className="menu-icon">⭐</span>
-                <span>저장한 공고</span>
+            )}
+          </div>
+
+          {/* 기존 사용자 메뉴 */}
+          <div className="user-menu" ref={menuRef}>
+            <button className="profile-btn" onClick={toggleMenu}>
+              <div className="profile-icon">
+                <span>👤</span>
               </div>
-              <div className="menu-item" onClick={() => handleMenuClick('applications')}>
-                <span className="menu-icon">📋</span>
-                <span>지원 현황</span>
+              <span className="profile-name">마이페이지</span>
+              <span className={`arrow ${isMenuOpen ? 'up' : 'down'}`}>▼</span>
+            </button>
+
+            {isMenuOpen && (
+              <div className="dropdown-menu">
+                <div className="menu-item" onClick={() => handleMenuClick('resume')}>
+                  <span className="menu-icon">📝</span>
+                  <span>자기소개서</span>
+                </div>
+                <div className="menu-item" onClick={() => handleMenuClick('saved-jobs')}>
+                  <span className="menu-icon">⭐</span>
+                  <span>저장한 공고</span>
+                </div>
+                <div className="menu-item" onClick={() => handleMenuClick('applications')}>
+                  <span className="menu-icon">📋</span>
+                  <span>지원 현황</span>
+                </div>
+                <div className="menu-divider"></div>
+                <div className="menu-item" onClick={() => handleMenuClick('settings')}>
+                  <span className="menu-icon">⚙️</span>
+                  <span>설정</span>
+                </div>
+                <div className="menu-item logout" onClick={handleLogoutClick}>
+                  <span className="menu-icon">🚪</span>
+                  <span>로그아웃</span>
+                </div>
               </div>
-              <div className="menu-divider"></div>
-              <div className="menu-item" onClick={() => handleMenuClick('settings')}>
-                <span className="menu-icon">⚙️</span>
-                <span>설정</span>
-              </div>
-              {/* ✨ 4. 로그아웃 메뉴의 onClick을 handleLogoutClick으로 변경 */}
-              <div className="menu-item logout" onClick={handleLogoutClick}>
-                <span className="menu-icon">🚪</span>
-                <span>로그아웃</span>
-              </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
 
-      {/* ✨ 5. 로그아웃 확인 창(Modal) JSX 추가 */}
+      {/* 로그아웃 확인 창 */}
       {showLogoutConfirm && (
         <div className="confirm-overlay">
           <div className="confirm-modal">
@@ -118,7 +154,6 @@ const Header = ({ onNavigate }) => {
       )}
 
       <style jsx>{`
-        /* 기존 스타일은 그대로 유지 */
         .header-container {
           display: flex;
           justify-content: space-between;
@@ -126,21 +161,103 @@ const Header = ({ onNavigate }) => {
           position: relative;
         }
 
+        /* 헤더 오른쪽 컨트롤들을 묶는 컨테이너 */
+        .header-controls {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        /* 글씨 크기 조정 메뉴 스타일 */
+        .font-size-menu {
+          position: relative;
+        }
+
+        .font-size-btn {
+          display: flex;
+          align-items: center;
+          gap: 0.8rem;
+          background: none;
+          border: none;
+          padding: 0.8rem 1.2rem;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background-color 0.2s ease;
+        }
+
+        .font-size-btn:hover {
+          background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .font-icon {
+          font-size: 1.5rem;
+          width: 2rem;
+          text-align: center;
+        }
+
+        .font-label {
+          font-size: 1.5rem;
+          font-weight: 500;
+          color: #333;
+        }
+
+        .font-dropdown-menu {
+          position: absolute;
+          top: 100%;
+          right: 0;
+          background: white;
+          border: 1px solid #e0e0e0;
+          border-radius: 8px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          min-width: 14rem;
+          z-index: 1000;
+          margin-top: 0.4rem;
+          overflow: hidden;
+        }
+
+        .font-menu-item {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          padding: 1rem 1.4rem;
+          cursor: pointer;
+          transition: background-color 0.2s ease;
+          font-size: 1.4rem;
+          color: #333;
+        }
+
+        .font-menu-item:hover {
+          background-color: #f5f5f5;
+        }
+
+        .font-menu-icon {
+          font-size: 1.4rem;
+          width: 1.8rem;
+          text-align: center;
+          flex-shrink: 0;
+        }
+
+        .font-menu-divider {
+          height: 1px;
+          background-color: #e0e0e0;
+          margin: 0.4rem 0;
+        }
+
+        /* 기존 사용자 메뉴 스타일 */
         .user-menu {
           position: relative;
-          margin-left: 20px;
         }
 
         .profile-btn {
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: 0.8rem;
           background: none;
           border: none;
-          padding: 8px 12px;
+          padding: 0.8rem 1.2rem;
           border-radius: 8px;
           cursor: pointer;
-          transition: background-color 0.2s;
+          transition: background-color 0.2s ease;
         }
 
         .profile-btn:hover {
@@ -148,24 +265,24 @@ const Header = ({ onNavigate }) => {
         }
 
         .profile-icon {
-          width: 32px;
-          height: 32px;
+          width: 3.2rem;
+          height: 3.2rem;
           border-radius: 50%;
           background-color: #f0f0f0;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 16px;
+          font-size: 1.6rem;
         }
 
         .profile-name {
-          font-size: 14px;
+          font-size: 1.5rem;
           font-weight: 500;
           color: #333;
         }
 
         .arrow {
-          font-size: 10px;
+          font-size: 1rem;
           color: #666;
           transition: transform 0.2s;
         }
@@ -182,16 +299,16 @@ const Header = ({ onNavigate }) => {
           border: 1px solid #e0e0e0;
           border-radius: 8px;
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-          min-width: 180px;
+          min-width: 18rem;
           z-index: 1000;
-          margin-top: 4px;
+          margin-top: 0.4rem;
         }
 
         .menu-item {
           display: flex;
           align-items: center;
-          gap: 10px;
-          padding: 12px 16px;
+          gap: 1rem;
+          padding: 1.2rem 1.6rem;
           cursor: pointer;
           transition: background-color 0.2s;
         }
@@ -218,15 +335,15 @@ const Header = ({ onNavigate }) => {
         }
 
         .menu-icon {
-          font-size: 16px;
-          width: 20px;
+          font-size: 1.6rem;
+          width: 2rem;
           text-align: center;
         }
 
         .menu-divider {
           height: 1px;
           background-color: #e0e0e0;
-          margin: 4px 0;
+          margin: 0.4rem 0;
         }
         
         /* 로그아웃 확인 창 스타일 */
@@ -260,7 +377,6 @@ const Header = ({ onNavigate }) => {
         .confirm-modal p {
           margin: 8px 0 24px;
           color: #333;
-          /* --- ✨ 변경된 부분 --- */
           font-size: 1.3rem; 
         }
 
@@ -294,6 +410,18 @@ const Header = ({ onNavigate }) => {
         }
         .modal-buttons .btn-yes:hover {
           background-color: #c0392b;
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+          .header-controls {
+            gap: 0.5rem;
+          }
+          
+          .font-dropdown-menu,
+          .dropdown-menu {
+            right: -1rem;
+          }
         }
       `}</style>
     </header>

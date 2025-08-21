@@ -1,3 +1,5 @@
+// 마이페이지 - 저장한 공고
+
 import React from 'react';
 import JobCard from '../JobCard';
 import './SavedJobs.css';

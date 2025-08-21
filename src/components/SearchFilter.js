@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-
 // 노인 사용자층을 고려하여 UI를 단순화한 일자리 검색 필터 컴포넌트
+
+import React, { useState } from 'react';
 
 const SearchFilter = ({ jobs, setJobs }) => {
   const [originalJobs] = useState(jobs);

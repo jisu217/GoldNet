@@ -1,3 +1,5 @@
+// 마이페이지 - 자기소개서
+
 import React, { useState } from 'react';
 import './Resume.css';
 

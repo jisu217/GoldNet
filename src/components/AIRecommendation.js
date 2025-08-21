@@ -1,4 +1,4 @@
-/* // 2. AI 맞춤 추천 페이지
+/* AI 맞춤 추천 페이지
 
 import React, { useState, useEffect } from 'react'; 
 
