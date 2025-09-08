@@ -212,4 +212,47 @@ graph TB
 | 📊 **팀원** | **김이림** | 기획, 데이터 수집 및 분석 | 
 | 📈 **팀원** | **박지우** | 기획, 데이터 수집 및 분석 | 
 | 🔎 **팀원** | **정선영** | 기획, 데이터 수집 및 분석 |
-| 멘토 | 김기태 | 프로젝트 멘토링 | 
+| 멘토 | 김기태 | 프로젝트 멘토링 |
+
+## 🌐 시스템 아키텍처
+
+```mermaid
+graph TB
+    subgraph "Frontend Layer"
+        A[React Application]
+        B[Responsive UI/UX]
+    end
+    
+    subgraph "Backend Layer"
+        C[Spring Boot API Server]
+        D[JPA/Hibernate ORM]
+        E[AI Service Module]
+    end
+    
+    subgraph "Data Layer"
+        F[MySQL Database]
+        G[Flyway Migration]
+    end
+    
+    subgraph "External Services"
+        H[OpenAI API]
+        I[Job Posting Websites]
+        J[Selenium WebDriver]
+    end
+    
+    subgraph "Infrastructure"
+        K[Docker Containers]
+        L[GitHub Actions CI/CD]
+        M[EC2 Deployment]
+    end
+    
+    A --> C
+    C --> D
+    D --> F
+    C --> E
+    E --> H
+    J --> I
+    J --> E
+    G --> F
+    L --> K
+    K --> M
