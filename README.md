@@ -94,7 +94,7 @@ ex: <img src="[이미지 주소]" width="500">
 ---
 ## 4. API 명세서
 
-### 채용 공고
+### A. 채용 공고
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
 | `GET` | `/api/job-postings` | 채용 공고 목록 조회 |
@@ -102,7 +102,7 @@ ex: <img src="[이미지 주소]" width="500">
 | `POST` | `/api/job-postings/search` | 조건별 채용 공고 검색 |
 | `POST` | `/api/crawling/execute` | 채용 공고 크롤링 실행 |
 
-### 사용자 및 이력서
+### B. 사용자 및 이력서
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
 | `GET` | `/api/users/{id}/resume` | 사용자 이력서 조회 |
@@ -110,7 +110,7 @@ ex: <img src="[이미지 주소]" width="500">
 | `PUT` | `/api/users/{id}/resume` | 이력서 수정 |
 | `DELETE`| `/api/users/{id}/resume` | 이력서 삭제 |
 
-### AI 추천
+### C. AI 추천
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
 | `POST` | `/api/recommendations/generate` | AI 기반 맞춤형 일자리 추천 |
