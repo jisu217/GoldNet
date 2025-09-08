@@ -111,8 +111,7 @@ graph TB
     subgraph "Data Layer"
         F[MySQL Database]
         G[Flyway Migration]
-    end
-    
+```mermaid
     subgraph "External Services"
         H[OpenAI API]
         I[Job Posting Websites]
@@ -136,20 +135,6 @@ graph TB
     L --> K
     K --> M
 
----
-
-## 5. API 명세서
-
-### 채용 공고
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `GET` | `/api/job-postings` | 채용 공고 목록 조회 |
-| `GET` | `/api/job-postings/{id}` | 특정 채용 공고 상세 조회 |
-| `POST` | `/api/job-postings/search` | 조건별 채용 공고 검색 |
-| `POST` | `/api/crawling/execute` | 채용 공고 크롤링 실행 |
-
-### 사용자 및 이력서
-| Method | Endpoint | Description |
 | :--- | :--- | :--- |
 | `GET` | `/api/users/{id}/resume` | 사용자 이력서 조회 |
 | `POST` | `/api/users/{id}/resume` | 이력서 생성 |
