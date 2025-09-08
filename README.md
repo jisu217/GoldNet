@@ -1,7 +1,7 @@
 # 👩🏻‍💻 GOLDNet_고령층을 위한 AI 기반 맞춤형 구직 플랫폼
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=FFD700,FFA500&height=300&section=header&text=GOLDNet&fontSize=90" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&customColorList=FFD700,FFA500&height=300&section=header&text=GOLDNet&fontSize=90" />
 </p>
 
 <div align="center">
