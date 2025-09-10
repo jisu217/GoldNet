@@ -1,4 +1,4 @@
-# 🤶🏻 GOLDNet_고령층을 위한 AI 기반 맞춤형 구직 플랫폼
+# 👵 GOLDNet_고령층을 위한 AI 기반 맞춤형 구직 플랫폼
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=FFD700,DAA520&height=300&section=header&text=GOLDNet&fontSize=90" />
