@@ -1,4 +1,4 @@
-# 👵 GOLDNet_고령층을 위한 AI 기반 맞춤형 구직 플랫폼
+# GOLDNet_고령층을 위한 AI 기반 맞춤형 구직 플랫폼
 
 <div align="center">
   <strong>65세 이상 인구 20% 시대, 디지털 격차를 해소하고 새로운 기회를 연결합니다.</strong>
